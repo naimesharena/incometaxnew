@@ -1,0 +1,9 @@
+cell	formula	cached_value
+E7	IF(sheet1.PAN="","",sheet1.PAN)	
+T7	CONCATENATE(sheet1.FirstName," ",sheet1.MiddleName," ",sheet1.SurNameOrOrgName)	  
+E9	IF(Sheet1.Aadhaar="","",Sheet1.Aadhaar)	
+AZ18	COUNTIF(U_ReasonsForUpdatingIncome,"Reduction of carried forward loss")	0
+BA18	COUNTIF(U_ReasonsForUpdatingIncome,"Reduction of unabsorbed depreciation")	0
+BB18	COUNTIF(U_ReasonsForUpdatingIncome,"Reduction of tax credit u/s 115JB/115JC")	0
+AZ24	COUNTIF(U_UnabsorbedDepreciationYear,"2023")	0
+BA24	COUNTIF(U_UnabsorbedDepreciationYear,"2024")	0

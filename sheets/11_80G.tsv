@@ -1,0 +1,46 @@
+row	A	B	C	D	E	F	G	H	I	J	K	L	M	N	O	P	Q	R	S	T	U	V	W	X	Y	Z	AA	AB	AC	AD	AE	AF	AG	AH	AI	AJ	AK	AL	AM	AN	AO	AP	AQ	AR	AS	AT	AU	AV	AW	AX	AY	AZ
+3			Schedule 80G		Details of donations entitled for deduction under section 80G																										0	0	0	0	0
+4			A	 Donations entitled for 100% deduction without qualifying limit,  
+ (where any row is filled by the user, all the fields in that row should become mandatory)
+5				Sl.No.	Name of donee	Address	City or Town or District	State Code	Pin Code	PAN of the donee		Amount of donation				Total Donation	Eligible Amount of Donation
+6												Donation in cash	Donation in other mode	Transaction Reference number for _UPI transfer / Cheque number/IMPS/NEFT/RTGS reference number	IFSC code of Bank
+7					(i)	(ii)	(iii)	(iv)	(v)	(vi)		(vii)					(viii)
+8				1												0	0							NoData	_NoData	0	0			ABCPD1234A
+9				2												0	0							NoData	_NoData	0	0
+10				3												0	0							NoData	_NoData	0	0
+11				4												0	0							NoData	_NoData	0	0
+13				                      Total  A							(ix)	0	0			0	0
+15			                                                                                                       (Do Not Delete Blank Rows)
+17			B	Donations entitled for 50% deduction without qualifying limit
+19				Sl.No.	Name of donee	Address	City or Town or District	State Code	Pin Code	PAN of the Donee		Amount of donation				Total Donation
+20												Donation in cash	Donation in other mode	Transaction Reference number for _UPI transfer / Cheque number/IMPS/NEFT/RTGS reference number	IFSC code of Bank		Eligible Amount of Donation
+21					(i)	(ii)	(iii)	(iv)	(v)	(vi)		(vii)					(viii)
+22				1												0	0							NoData	_NoData	0	0
+23				2												0	0							NoData	_NoData	0	0
+24				3												0	0							NoData	_NoData	0	0
+25				4												0	0							NoData	_NoData	0	0
+27					Total  B						(ix)	0	0			0	0
+29			                                                                                                     (Do Not Delete Blank Rows)
+31			C	Donations entitled for 100% deduction subject to qualifying limit
+32				Sl.No.	Name of donee	Address	City Or Town Or District	State Code	Pin Code	PAN of the Donee		Amount of donation				Total Donation	Eligible Amount of Donation
+33												Donation in cash	Donation in other mode	Transaction Reference number for _UPI transfer / Cheque number/IMPS/NEFT/RTGS reference number	IFSC code of Bank
+34					(i)	(ii)	(iii)	(iv)	(v)	(vi)		(vii)					(viii)
+35				1												0	0							NoData	_NoData	0	0
+36				2												0	0							NoData	_NoData	0	0
+37				3												0	0							NoData	_NoData	0	0
+38				4												0	0							NoData	_NoData	0	0
+40					Total  C						(ix)	0	0			0	0
+42			                                                                                                 (Do Not Delete Blank Rows)
+44			D	Donations entitled for 50% deduction subject to qualifying limit
+45				Sl.No.	Name of donee	Address	City Or Town Or District	State Code	Pin Code	PAN of the Donee	ARN
+Donation Reference Number	Amount of donation					Eligible Amount of Donation
+46												Donation in cash	Donation in other mode	Transaction Reference number for _UPI transfer / Cheque number/IMPS/NEFT/RTGS reference number	IFSC code of Bank	Total Donation
+47					(i)	(ii)	(iii)	(iv)	(v)	(vi)		(vii)					(viii)
+48				1												0	0						0	NoData	_NoData	0	0																									0
+49				2												0	0						0	NoData	_NoData	0	0																									0
+50				3												0	0						0	NoData	_NoData	0	0																									0
+51				4												0	0						0	NoData	_NoData	0	0																									0
+53					Total  D						(ix)	0	0			0	0
+55			                                                                                                 (Do Not Delete Blank Rows)
+57			E	Donations (A + B + C + D)										0	0	0	0
+58			Note : In case of Donee is Government and PAN is not available then use  "GGGGG0000G" as PAN.

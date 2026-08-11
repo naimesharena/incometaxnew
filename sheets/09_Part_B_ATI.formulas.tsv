@@ -1,0 +1,23 @@
+cell	formula	cached_value
+Z5	MID(sheet1.ReturnFileSec,4,4)	(1)-
+P10	IF(MID(sheet1.ReturnFileSec,4,4)="(8A)",SUM(P5:P9),0)	0
+P12	IF(MID(sheet1.ReturnFileSec,4,4)="(8A)",IncD.TotalIncome_New,0)	0
+P13	IF(MID(sheet1.ReturnFileSec,4,4)="(8A)",IncD.BalTaxPayable,0)	0
+P14	IF(U_AmtPayable>0,0,IF(MID(sheet1.ReturnFileSec,4,4)="(8A)",IncD.RefundDue,0))	0
+S17	 VALUE(MID( Ver.Date,4,2))	8
+T17	 VALUE(MID( Ver.Date,9,4))	26
+P18	IF(MID(sheet1.ReturnFileSec,4,4)="(8A)",IncD.IntrstPayUs234F,0)	0
+S19	ROUND((MAX(0,(U_AggrLiabilityRefund+U_AggrLiabilityNoRefund)-U_FeeIncUS234F)*0.25),0)	0
+P21	MAX(0,IF(MID(sheet1.ReturnFileSec,4,4)="(8A)",IF(P17>0,P13+P17-(P15+P19+U_AmtRefundable),0),0))	0
+P22	MAX(0,IF(MID(sheet1.ReturnFileSec,4,4)="(8A)",IF(P17=0,P13+P16-(P15+P19+U_AmtRefundable),0),0))	0
+P23	MAX(IF(Return_Dropdown=1,ROUND((MAX(0,(U_AggrLiabilityRefund+U_AggrLiabilityNoRefund)-U_FeeIncUS234F)*0.25),0),IF(Return_Dropdown=2,ROUND((MAX(0,(U_AggrLiabilityRefund+U_AggrLiabilityNoRefund)-U_FeeIncUS234F)*0.5),0),IF(Return_Dropdown=3,ROUND((MAX(0,(U_AggrLiabilityRefund+U_AggrLiabilityNoRefund)-U_FeeIncUS234F)*0.6),0),IF(Return_Dropdown=4,ROUND((MAX(0,(U_AggrLiabilityRefund+U_AggrLiabilityNoRefund)-U_FeeIncUS234F)*0.7),0),0)))),0)	0
+S23	MAX(0,(U_AggrLiabilityRefund+U_AggrLiabilityNoRefund)-U_FeeIncUS234F)	0
+T23	IF(LEFT(U_UpdatedReturnDuringPeriod,2)="Up",1,IF(LEFT(U_UpdatedReturnDuringPeriod,10)="Between 12",2,IF(LEFT(U_UpdatedReturnDuringPeriod,10)="Between 24",3,IF(LEFT(U_UpdatedReturnDuringPeriod,10)="Between 36",4,0))))	0
+U23	MAX(IF(Return_Dropdown=1,ROUND((MAX(0,(U_AggrLiabilityRefund+U_AggrLiabilityNoRefund)-U_FeeIncUS234F)*0.25),0),IF(Return_Dropdown=2,ROUND((MAX(0,(U_AggrLiabilityRefund+U_AggrLiabilityNoRefund)-U_FeeIncUS234F)*0.5),0),IF(Return_Dropdown=3,ROUND((MAX(0,(U_AggrLiabilityRefund+U_AggrLiabilityNoRefund)-U_FeeIncUS234F)*0.6),0),IF(Return_Dropdown=4,ROUND((MAX(0,(U_AggrLiabilityRefund+U_AggrLiabilityNoRefund)-U_FeeIncUS234F)*0.7),0),0)))),0)	0
+P24	MAX(IF(MID(sheet1.ReturnFileSec,4,4)="(8A)",MAX(0,P21+P22+P23),0),0)	0
+P25	U_Total1	0
+P26	IF(MID(sheet1.ReturnFileSec,4,4)="(8A)",MAX(0,P24-P25),0)	0
+E32	E31+1	2
+K33	IF(MID(sheet1.ReturnFileSec,4,4)="(8A)",SUM(U_Amt1),0)	0
+E40	E39+1	2
+K41	IF(MID(sheet1.ReturnFileSec,4,4)="(8A)",SUM(U_Amt2),0)	0

@@ -1,0 +1,20 @@
+row	A	B	C	D	E
+3			  SUMMARY     
+5			VERIFICATION
+6			Full Name	0
+7			PAN	0
+8			Son/daughter of
+9			Verification Date	02/08/2026
+10			Verification PAN
+13			Schedules	No. Of Entries	Amount
+14			TDS on Salary	2	0
+15			TDS on Other Than Salary	2	0
+16			TDS on Rent	2	0
+17			Tax Payments	2	0
+18			TCS	2	0
+20			Instructions
+21			1. Verify the count of number of entries against each schedule.
+2. Ensure the total number of entries entered per schedule is valid and being reflected in the preview sheet.   
+3. In case this count does not match the number of entries, you may check and update the schedules. 
+4. Click on ‘Save JSON’ to generate the JSON file if all the details are verified.
+

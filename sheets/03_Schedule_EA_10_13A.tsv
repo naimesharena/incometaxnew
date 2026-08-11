@@ -1,0 +1,12 @@
+row	A	B	C	D	E	F	G
+3			Schedule-10(13A)	House rent allowance(HRA)
+4			1	Place of Residence			(Select)
+5			2	Actual HRA received (A)
+6			3	Actual Rent paid
+7			4	Details of Salary as per section 17(1) 			0
+8			4(a)	Basic Salary
+9			4(b)	Dearness Allowance
+10			5	Actual rent paid-10% of salary (B)
+(3-10% of 4)			0
+11			6	50% /40% of salary (C)
+12			7	Eligible Exempt Allowance u/s 10(13A)			0

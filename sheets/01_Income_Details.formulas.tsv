@@ -1,0 +1,157 @@
+cell	formula	cached_value
+BK7	calculateAge(sheet1.DOB)	2026
+BK8	IF(BK7<=59,1,0)	0
+BL8	IF(BK7>=80,1,0)	1
+BK9	IF(BK7<=59,1,0)	0
+BI17	MAX(IncD.GrossTotIncome,0)	0
+BK17	IF( OR(MID(SELECT80D,1,1) ="(", MID(SELECT80D,1,1)=""),0,MID(SELECT80D,1,1))	0
+BG18	IF(AND(INT(MID(sheet1.DOB,4,2))=4,INT(MID(sheet1.DOB,1,2))=1),BK18,BK18)	#VALUE!
+BI18	MIN(MIN(IF(INT(MID(sheet1.DOB,7,4))<1960,IF(MID(sheet1.ResidentialStatus1,1,3)="NRI",BK18,BK18),IF(INT(MID(sheet1.DOB,7,4))=1960, IF(INT(MID(sheet1.DOB,4,2))<4,IF(MID(sheet1.ResidentialStatus1,1,3)="NRI",BK18,BK18),BG18),BK18)),VALUE(IncD.Section80D)),TOTAL_INCOME)	#VALUE!
+BK18	IF(OR(BK17="1",BK17="3"),25000,IF(OR(BK17="2",BK17="4"),IF(AND(BK17="2",BK8=1),50000,50000),IF(BK17="5",50000,IF(BK17="6",75000,IF(BK17="7",IF(BK9=1,75000,100000),0)))))	0
+BG19	IF(AND(INT(MID(sheet1.DOB,4,2))=4,INT(MID(sheet1.DOB,1,2))=1),BI21,BI21)	#VALUE!
+BI19	MIN(MIN(IF(INT(MID(sheet1.DOB,7,4))<1960,IF(MID(sheet1.ResidentialStatus1,1,3)="NRI",BI21,BI21),IF(INT(MID(sheet1.DOB,7,4))=1960, IF(INT(MID(sheet1.DOB,4,2))<4,IF(MID(sheet1.ResidentialStatus1,1,3)="NRI",BI21,BI21),BG19),BI21)),VALUE(IncD.Section80DB)),TOTAL_INCOME)	#VALUE!
+BI20	IF( OR(MID(SELECT80DB,1,1) ="(", MID(SELECT80DB,1,1)=""),0,MID(SELECT80DB,1,1))	0
+BI21	IF(BI20="3",100000,IF(BI20="1",50000,IF(BI20="2",50000,0)))	0
+BM21	IF(BK7<59,1,IF(AND(BK7>=59,BK7<=79),2,3))	3
+BM22	IF( OR(MID(SELECT80DDS,1,1) ="(", MID(SELECT80DDS,1,1)=""),0,MID(SELECT80DDS,1,1))	0
+BG46	IF(AND(INT(MID(sheet1.DOB,4,2))=4,INT(MID(sheet1.DOB,1,2))=1),BM46,BM46)	#VALUE!
+BI46	MIN(MIN(BM46,VALUE(IncD.Section80DDB)),TOTAL_INCOME)	0
+BM46	IF(BM22="1",40000,IF(BM22="2",100000))	FALSE
+BN46	IF(OR(BM22="1",BM21=1),40000,IF(OR(BM22="2",BM21=2),60000,IF(OR(BM22="3",BM21=3),80000,0)))	80000
+AO54	MAX(0,(IncD.Allowances+IncD.Perquisites+IncD.Profits))	0
+AZ55	COUNTIF(Others.NOI_1,"10(10B) First proviso - Compensation limit notified by CG in the Official Gazette")	0
+BA55	COUNTIF(Others.NOI_2,"Interest accrued on contributions to provident fund to the extent taxable as per first proviso to section 10(11)")	0
+BK55	IncD.Allowances+IncD.Perquisites+IncD.Profits	0
+AZ56	COUNTIF(Others.NOI_1,"10(10B) Second proviso - Compensation under scheme approved by the Central Government")	0
+BA56	COUNTIF(Others.NOI_2,"Interest accrued on contributions to provident fund to the extent taxable as per second proviso to section 10(11)")	0
+AZ57	COUNTIF(Others.NOI_1,"Sec 10(10C)- Amount received/receivable on voluntary retirement or termination of service")	0
+BA57	COUNTIF(Others.NOI_2,"Interest accrued on contributions to provident fund to the extent taxable as per first proviso to section 10(12)")	0
+BB57	Sheet1.HRA	0
+AO58	IncomeNotified89A_AmountUS+IncomeNotified89A_AmountUK+IncomeNotified89A_AmountCan	0
+AZ58	SUM(AZ55:AZ57)	0
+BA58	COUNTIF(Others.NOI_2,"Interest accrued on contributions to provident fund to the extent taxable as per second proviso to section 10(12)")	0
+BB58	SUMIF(Others.NOI_1,"Sec 10(13A)-Allowance to meet expenditure incurred on house rent",Others.Amount_1)	0
+BA63	SUM(BA55:BA58)	0
+AO64	SUM(Others.Amount_1,Sheet1.HRA)	0
+G67	G66+1	2
+AO69	Sch10of13A_ElgiblExmptAllwnce10of13A	0
+AO71	MAX(0,IncD.IncomeFromSal-MIN(Less_allowance,IncD.Allowances+IncD.Perquisites+IncD.Profits))	0
+AO72	MAX(0,(IncD.Deduction16ia+IncD.Deduction16+IncD.Deduction16ic))	0
+AO73	IF(BacValue=1,MIN(Net_salary,75000),IF(BacValue=2,MIN(Net_salary,50000),0))	0
+BB73	IF(BacValue=1,MIN(Net_salary,75000),IF(BacValue=2,MIN(Net_salary,50000),0))	0
+AO76	MAX(0,(Net_salary-Deductions_16))	0
+AO80	MAX(IncD.GrossRentRecieved-IncD.TaxPaidLocalAuthorities,0)	0
+AO81	ROUND(IF(OR(IncD.AnnualValue=0,IncD.AnnualValue<0),0,0.3*IncD.AnnualValue),0)	0
+AO82	IF(AND(BacValue=1,MID(IncD.TypeOfHP,1,1)="S"),0,IF(AND(BacValue=2,MID(IncD.TypeOfHP,1,1)="S"),IF(TotAmt.24b>200000,200000,MIN(200000,TotAmt.24b)),IF(AND(MID(IncD.TypeOfHP,1,1)<>"S",IncD.GrossRentRecieved=0),0,TotAmt.24b)))	0
+AO84	HP.TotalIncomeChargeableUnHP	0
+AO85	MAX(0,(SUM(IncD.Div,SUM(Others.Amount_2),OSIncomeNotifiedOther89A,OSIncomeNotified89A)-IncD.LessDeduction57-OSIncreliefus89A))	0
+BB85	COUNTIF(Others.NOI_2,"Family pension")	0
+BC85	SUMIF(Others.NOI_2,"Family pension",Others.Amount_2)	0
+BB87	IF(MID(J87,1,1)="F",AO87,0)	0
+BC87	IF(MID(J87,1,1)="F",1,0)	0
+BD87	IF(MID(J87,1,15)="Interest from S",AO87,0)	0
+BE87	IF(MID(J87,1,15)="Interest from S",AO87,0)	0
+BF87	IF(MID(J87,1,15)="Interest from D",AO87,0)	0
+G88	G87+1	2
+BB88	IF(MID(J88,1,1)="F",AO88,0)	0
+BC88	IF(MID(J88,1,1)="F",1,0)	0
+BD88	IF(MID(J88,1,15)="Interest from S",AO88,0)	0
+BE88	IF(MID(J88,1,15)="Interest from S",AO88,0)	0
+BF88	IF(MID(J88,1,15)="Interest from D",AO88,0)	0
+G89	G88+1	3
+BB89	IF(MID(J89,1,1)="F",AO89,0)	0
+BC89	IF(MID(J89,1,1)="F",1,0)	0
+BD89	IF(MID(J89,1,15)="Interest from S",AO89,0)	0
+BE89	IF(MID(J89,1,15)="Interest from S",AO89,0)	0
+BF89	IF(MID(J89,1,15)="Interest from D",AO89,0)	0
+G90	G89+1	4
+BB90	IF(MID(J90,1,1)="F",AO90,0)	0
+BC90	IF(MID(J90,1,1)="F",1,0)	0
+BD90	IF(MID(J90,1,15)="Interest from S",AO90,0)	0
+BE90	IF(MID(J90,1,15)="Interest from S",AO90,0)	0
+BF90	IF(MID(J90,1,15)="Interest from D",AO90,0)	0
+AO93	OSIncomeNotified89A_AmountUS+OSIncomeNotified89A_AmountUK+OSIncomeNotified89A_AmountCan	0
+BB98	IncD_q1OS1+IncD_q2OS1+IncD_q3OS1+IncD_q4OS1+IncD_q5OS1	0
+BB99	OSIncomeNotified89A-OSIncreliefus89A	0
+BQ104	MIN(IncD.TotalIncome,IncD_q1div+IncD_q1OS1)+MAX(0,IncD.TotalIncome-IncD.Div-IncD_qOS1)	0
+BQ105	MIN(IncD.TotalIncome-MAX(IncD_q1div+IncD_q1OS1-IncD.TotalChapVIADeductions,0),IncD_q2div+IncD_q2OS1)+IncD.Q1Inc	0
+BQ106	MIN(IncD.TotalIncome-MAX(IncD_q1div+IncD_q2div+IncD_q1OS1+IncD_q2OS1-IncD.TotalChapVIADeductions,0),IncD_q3div+IncD_q3OS1)+IncD.Q2Inc	0
+BQ107	MIN(IncD.TotalIncome-MAX(IncD_q1div+IncD_q2div+IncD_q3div+IncD_q1OS1+IncD_q2OS1+IncD_q3OS1-IncD.TotalChapVIADeductions,0),IncD_q4div+IncD_q4OS1)+ IncD.Q3Inc	0
+BQ108	MIN(IncD.TotalIncome-MAX(IncD_q1div+IncD_q2div+IncD_q3div+IncD_q4div+IncD_q1OS1+IncD_q2OS1+IncD_q3OS1+IncD_q4OS1-IncD.TotalChapVIADeductions,0),IncD_q5div+IncD_q5OS1)+ IncD.Q4Inc	0
+AZ110	IF(BacValue=1,ROUND(MIN(25000,((1/3)*TotFamilyPension)),0),IF(BacValue=2,ROUND(MIN(15000,((1/3)*TotFamilyPension)),0),0))	0
+BA110	IF(BacValue=1,ROUND(MIN(25000,((1/3)*TotFamilyPension)),0),IF(BacValue=2,ROUND(MIN(15000,((1/3)*TotFamilyPension)),0),0))	0
+BD110	SUM(Others.Amount_2_2)	0
+AO111	SUM(IncD.TotalHeadSalaries,IF(BacValue=1,MAX(0,IncD.IncomeHeadHouseProperty),IncD.IncomeHeadHouseProperty),IncD.IncomeFromOS)	0
+BD111	SUM(Others.Amount_2_1)	0
+BK111	IF(IncD.TypeOfHP="Self Occupied",IncD.IncomeFromHP,(IF(IncD.TypeOfHP="Let Out",IF(ISBLANK(IncD.IncomeFromHP),0,MAX(-200000,IncD.IncomeFromHP)),0)))	0
+AO112	SUM(IncD.TotalHeadSalaries,IF(BacValue=1,MAX(0,IncD.IncomeHeadHouseProperty),IncD.IncomeHeadHouseProperty),IncD.IncomeFromOS,IncD.CG_LTCG)	0
+AN115	MIN(MIN(VALUE(IncD.Section80C),150000),TOTAL_INCOME)	0
+BD115	SUM(AB115:AM155)	0
+AB116	SUM(Amount_80CCC)	0
+AN116	IF(MIN(MIN(VALUE(IncD.Section80CCC), MIN(150000,ABS(IncD.GrossTotIncome)),MIN(150000,ABS(IncD.GrossTotIncome)) - IncD.Section80C_Calc),TOTAL_INCOME)>150000,150000,MIN(MIN(VALUE(IncD.Section80CCC), MIN(150000,ABS(IncD.GrossTotIncome)),MIN(150000,ABS(IncD.GrossTotIncome)) - IncD.Section80C_Calc),TOTAL_INCOME))	0
+F119	F118+1	2
+AN121	IF((MAX(0,MIN(MIN(VALUE(IncD.Section80CCD_SE), ROUND(IF(OR(MID(sheet1.EmployerCategory1,1,1)="S",MID(sheet1.EmployerCategory1,1,1)="C",MID(sheet1.EmployerCategory1,1,2)="Pu",MID(sheet1.EmployerCategory1,1,1)="J",MID(sheet1.EmployerCategory1,1,1)="O"),0.1*VALUE(Net_salary-IncD.Perquisites),0.2*VALUE(IncD.GrossTotIncome)),0), 150000 - IncD.Section80C_Calc - IncD.Section80CCC_Calc ),MIN(150000,ABS(IncD.GrossTotIncome) - IncD.Section80C_Calc-IncD.Section80CCC_Calc),TOTAL_INCOME)))>150000,150000,(MAX(0,MIN(MIN(VALUE(IncD.Section80CCD_SE), ROUND(IF(OR(MID(sheet1.EmployerCategory1,1,1)="S",MID(sheet1.EmployerCategory1,1,1)="C",MID(sheet1.EmployerCategory1,1,2)="Pu",MID(sheet1.EmployerCategory1,1,1)="J",MID(sheet1.EmployerCategory1,1,1)="O"),0.1*VALUE(Net_salary-IncD.Perquisites),0.2*VALUE(IncD.GrossTotIncome)),0), 150000 - IncD.Section80C_Calc - IncD.Section80CCC_Calc ),MIN(150000,ABS(IncD.GrossTotIncome) - IncD.Section80C_Calc-IncD.Section80CCC_Calc),TOTAL_INCOME))))	0
+AN126	MIN(VALUE(IncD.Section80CCD1B_SE),50000,TOTAL_INCOME)	0
+BA126	IF(OR(MID(sheet1.EmployerCategory1,1,2)="Pu",MID(sheet1.EmployerCategory1,1,1)="O"),1,IF(OR(MID(sheet1.EmployerCategory1,1,1)="C",MID(sheet1.EmployerCategory1,1,1)="S",MID(sheet1.EmployerCategory1,1,1)="J"),2,0))	0
+F133	F132+1	2
+F134	F133+1	3
+AN137	IF(BacValue=2,MIN(VALUE(IncD.Section80CCD), IF(BA126=1,ROUND(0.1*MAX(0,(Net_salary-IncD.Perquisites)),0), IF(BA126=2,ROUND(0.14*MAX(0,(Net_salary-IncD.Perquisites)),0),0)),TOTAL_INCOME),IF(BacValue=1,MIN(VALUE(IncD.Section80CCD), IF(OR(BA126=1,BA126=2),ROUND(0.14*MAX(0,(Net_salary-IncD.Perquisites)),0),0),TOTAL_INCOME),0))	0
+AN138	MIN( IF(TOTAL_INCOME > 1200000,0,MIN(VALUE(IncD.Section80CCG),25000)),TOTAL_INCOME)	0
+AB140	IF(BacValue=1,0,Eligible_Amount_80D)	0
+AN140	IF(IncD.GrossTotIncome<0,0,IncD.Section80DValue)	0
+AN141	MIN(100000,SUM(BD143,IF(ISERROR(IncdSection80DB),0,IncdSection80DB)))	0
+BD141	SUM(IF(ISERROR(IncdSection80D),0,IncdSection80D),Temp80DC)	0
+BF141	MIN(100000,SUM(BD143,IF(ISERROR(IncdSection80DB),0,IncdSection80DB)))	0
+BD142	IF(AND(MID(SELECT80D,1,1)="1",MID(SELECT80DC,1,1)="1"),1,IF(AND(MID(SELECT80D,1,1)="3",MID(SELECT80DC,1,1)="2"),2,IF(AND(MID(SELECT80D,1,1)="5",MID(SELECT80DC,1,1)="3"),3,IF(AND(MID(SELECT80D,1,1)="6",OR(MID(SELECT80DC,1,1)="1",MID(SELECT80DC,1,1)="2",MID(SELECT80DC,1,1)="3")),4,0))))	0
+BD143	IF(BD142=1,MIN(25000,BD141),IF(BD142=2,MIN(25000,BD141),IF(BD142=3,MIN(50000,BD141),IF(BD142=4,MIN(75000,BD141),BD141))))	0
+BG143	MID(SELECT80DC,1,1)	(
+BH143	MIN(IF(BG143="1",5000,IF(BG143="2",5000,IF(BG143="3",5000,0))),TOTAL_INCOME,IF(IncD.Section80DC="",0,IncD.Section80DC))	0
+AB144	IF(BacValue=1,0,Amtdeduction_80DD)	0
+AN144	IF(BacValue=1,0,IncD.Section80DD)	0
+BG144	MID(Naturedisability_80DD_v1,1,1)	
+BH144	IF(BG144="1",75000,IF(BG144="2",125000,0))	0
+AN145	IF(ISERROR(IncdSection80DD),0,IncdSection80DD)	0
+AN147	MIN(VALUE(IncD.Section80E),TOTAL_INCOME)	0
+AN148	MIN(MIN(VALUE(IncD.Section80EE),TOTAL_INCOME),50000)	0
+AN149	MIN(MIN(VALUE(IncD.Section80EEA),TOTAL_INCOME),150000)	0
+AN150	MIN(MIN(VALUE(IncD.Section80EEB),TOTAL_INCOME),150000)	0
+AB151	IF(BacValue=1,0,MIN(TOTAL_INCOME,Per5080G.TotalEligibleDonationsUs80G))	0
+AN151	IncD.Section80G	0
+AN152	MIN(MIN(ROUND(MIN(IF(HRA>0,55000,60000), 0.25*(MAX(0,TOTAL_INCOME-(SUM(AN115:AW151)+SUM(AN154:AW161)+0)))),0),VALUE(IncD.Section80GG)),TOTAL_INCOME)	0
+AB154	IF(BacValue=1,0,Total_Donation_80GGA)	0
+AN154	IF(BacValue=1,0,Total_Donation_Eligible_80GGA)	0
+AB155	IF(BacValue=1,0,Total_Donation_80GGC)	0
+AN155	IF(BacValue=1,0,Total_Donation_Eligible_80GGC)	0
+AN158	MIN(MIN(VALUE(IncD.Section80TTA),10000),MAX(0,MIN(TOTAL_INCOME,MAX(0,tta))))	0
+BD158	SUM(Others.Amount_2_3)	0
+AN159	MIN(MIN(VALUE(IncD.Section80TTB),50000),MAX(0,MIN(TOTAL_INCOME,MAX(0,ttb))))	0
+BD159	SUM(Others.Amount_2_4,Others.Amount_2_5)	0
+AB160	IF(BacValue=1,0,Amtdeduction_80U)	0
+AN160	IF(BacValue=1,0,IncD.Section80U)	0
+BG160	MID(Naturedisability_80U_v1,1,1)	
+BH160	IF(BG160="1",75000,IF(BG160="2",125000,0))	0
+AN161	IF(IncD.AnyOtherDeductions>0,MIN(IncD.AnyOtherDeductions,MIN((ROUND(IncD.Allowances*46.2/100,0)),288000)),0)	0
+BG161	MID(SELECT80U,1,1)	
+BH161	IF(BG161="1",75000,IF(BG161="2",125000,0))	0
+AB163	SUM(AB115:AM116,IncD.Section80CCD_SE,IncD.Section80CCD1B_SE,AB137:AM152,AB154:AM161)	0
+AO163	ROUND(MAX(MIN(MIN(IncD.TotalChapVIADeductions_Input,SUM(AN115:AW116,IncD.Section80CCD_Calc_SE,IncD.Section80CCD1B_Calc_SE,AN137:AW152,AN154:AW161)),IncD.GrossTotIncome),0),0)	0
+AO164	ROUND(MAX(0,IncD.GrossTotIncome-IncD.TotalChapVIADeductions),-1)	0
+AO165	ROUND(MAX(0,IncD.GrossTotIncome_New-IncD.TotalChapVIADeductions),-1)	0
+F169	F168+1	2
+BA169	SUMIF(Others.NOI,"Sec 10(11) Statutory Provident Fund received",Others.Amount) + SUMIF(Others.NOI,"Sec 10(12) Recognized Provident Fund received",Others.Amount) + SUMIF(Others.NOI,"Sec 10(13) Approved superannuation fund received",Others.Amount) + SUMIF(Others.NOI,"Sec 10(18) Pension received by winner of  ""Param Vir Chakra"" or ""Maha Vir Chakra"" or ""Vir Chakra"" or such other gallantry award",Others.Amount) + SUMIF(Others.NOI,"Defense Medical Disability Pension",Others.Amount) + SUMIF(Others.NOI,"Sec 10(19) Armed Forces Family pension in case of death during operational duty",Others.Amount) + SUMIF(Others.NOI,"Sec 10(26AAA) Any income as referred to in section 10(26AAA)",Others.Amount) + IncD.IncomeFromSal	0
+BB169	SUM(grosssalandexemptincome_hidden+TotFamilyPension)	0
+AO171	SUM(Others.Amount)	0
+AO175	IF((MAX(0,(IncD.Sale_LTCG-IncD.Cost_LTCG)))>125000,0,MAX(0,(IncD.Sale_LTCG-IncD.Cost_LTCG)))	0
+AO177	IF(BacValue=2,IF((IncD.TotalIncome_New)<=500000,MIN(IncD.TotalTaxPayable,12500),0),IF(BacValue=1,IF((IncD.TotalIncome)<=1200000,MIN(IncD.TotalTaxPayable,60000),IF((IncD.TotalTaxPayable>(IncD.TotalIncome-1200000)),(IncD.TotalTaxPayable-(IncD.TotalIncome-1200000)),0)),0))	0
+BG177	IF(BacValue=2,IF((IncD.TotalIncome)<=500000,MIN(IncD.TotalTaxPayable,12500),0),IF(BacValue=1,IF((IncD.TotalIncome)<=700000,MIN(IncD.TotalTaxPayable,25000),IF((IncD.TotalTaxPayable>(IncD.TotalIncome-700000)),(IncD.TotalTaxPayable-(IncD.TotalIncome-700000)),0)),0))	0
+AO178	ROUND(IncD.TotalTaxPayable-IncD.Rebate87A,0)	0
+AO180	ROUND((IncD.TaxPayableOnRebate)*0.04,0)	0
+AO181	ROUND(IncD.TaxPayableOnRebate+IncD.EducationCess,0)	0
+AZ182	IF(IncD.TotalTaxPayable<=0,0,ROUND(((IncD.TotalHeadSalaries-IncomeNotified89A-IncomeNotifiedOther89A+TotFamilyPension-IncD.LessDeduction57)/(IncD.TotalIncome))*IncD.TotalTaxPayable,0))	0
+AZ183	IF(IncD.TotalTaxPayable<=0,0,ROUND(((IncomeNotified89A)/(IncD.TotalIncome))*IncD.TotalTaxPayable,0))	0
+AO184	ROUND(MAX(IncD.GrossTaxLiability-IncD.Section89-IncD.Section89A,0),0)	0
+BI184	VALUE(MID(Ver.Date,1,2))	2
+BI185	VALUE(MID(Ver.Date,4,2))	8
+BI186	VALUE(MID(Ver.Date,7,4))	2026
+AO190	SUM(IncD.IntrstPayUs234A,IncD.IntrstPayUs234B,IncD.IntrstPayUs234C,IncD.IntrstPayUs234F,IncD.Section234I)	0
+AO191	IncD.GrossTaxLiability+IncD.IntrstPayUs234A+IncD.IntrstPayUs234B+IncD.IntrstPayUs234C+IncD.IntrstPayUs234F-IncD.Section89	0

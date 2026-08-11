@@ -1,0 +1,47 @@
+row	A	B	C	D	E	F	G	H	I	J	K	L
+3			80D
+4			1	Whether you or any of your family member (excluding parents) is a senior citizen?								Not claiming for Self/ Family
+5			a	Self & Family
+6			(i)	Health Insurance								0
+7				Details of insurance
+8				Sl. No.	Name of the Insurer (Insurance company)		Policy Number		Receipt/document number of the premium paid			Health Insurance amount    
+9				(i)	(ii)		(iii)		(iv)			(iv)
+10				1
+11				2
+12				3
+14				Total of Payments								0
+15			(ii)	Preventive Health Checkup
+16			b	Self & Family Including Senior Citizen
+17			(i)	Health Insurance								0
+18				Details of insurance
+19				Sl. No.	Name of the Insurer (Insurance company)                                        		Policy Number		Receipt/document number of the premium paid             			Health Insurance amount                    
+20				(i)	(ii)		(iii)		(iv)			(iv)
+21				1
+22				2
+23				3
+25				 Total of Payments								0
+26			(ii)	Preventive Health Checkup
+27			(iii)	Medical Expenditure (This deduction can be claimed on which health insurance is not claimed at (i) above)
+28			2	Whether any one of your parents is a senior citizen								Not claiming for Parents
+29			a	Parents
+30			(i)	Health Insurance								0
+31				Details of insurance
+32				Sl. No.	Name of the Insurer (Insurance company)                                        		Policy Number		Receipt/document number of the premium paid   			Health Insurance amount          
+33				(i)	(ii)		(iii)		(iv)			(iv)
+34				1
+35				2
+36				3
+38				Total of Payments								0
+39			(ii)	Preventive Health Checkup
+40			b	Parents including Senior Citizen
+41			(i)	Health Insurance								0
+42				Details of insurance
+43				Sl. No.	Name of the Insurer (Insurance company)                                        		Policy Number		Receipt/document number of the premium paid   			Health Insurance amount          
+44				(i)	(ii)		(iii)		(iv)			(iv)
+45				1
+46				2
+47				3
+49				Total of Payments								0
+50			(ii)	Preventive Health Checkup
+51			(iii)	Medical Expenditure (This deduction can be claimed on which health insurance is not claimed at (i) above)
+52			3	Eligible Amount of Deduction								0

@@ -1,0 +1,201 @@
+row	A	B	C	D	E	F	G	H	I	J	K	L	M	N	O	P	Q	R	S	T	U	V	W	X	Y	Z	AA	AB	AC	AD	AE	AF	AG	AH	AI	AJ	AK	AL	AM	AN	AO	AP	AQ	AR	AS	AT	AU	AV	AW	AX	AY	AZ	BA	BB	BC	BD	BE	BF	BG	BH	BI	BJ	BK	BL	BM	BN	BO	BP	BQ	BR
+3			FORM		  ITR-1   
+SAHAJ					INDIAN INCOME TAX RETURN																																Assessment 
+Year
+2026-27
+4										[For individuals being a RESIDENT (OTHER THAN NOT ORDINARILY RESIDENT) having total income up to Rs.50 lakh and having Income from Salaries, two house properties, other sources (Interest etc.), long-term capital gains under section 112A upto Rs. 1.25 lakh, and agricultural income up to Rs.5 thousand]
+[Not for an individual who is either Director in a company or has invested in unlisted equity shares or in cases where TDS has been deducted u/s 194N or if income-tax is deferred on ESOP or has assets (including financial interest in any entity) located outside India]
+(Refer rules for eligibility)
+6			PART A GENERAL INFORMATION		First Name										Middle Name										Last Name															PAN										 									Residential Status
+7																																																															2026
+8					Aadhaar Number [12 Digits]																																																										0	1
+9					Aadhaar Enrolment Id 
+[Note: If Aadhaar Number is not yet allotted, then Aadhaar Enrolment Id is required. All the digits in enrolment ID & Date and time of enrolment to be entered continuously. For example Enrolment ID: 1234/12345/12345 & Date/Time of enrolment: 01/12/2016 11:50:22 to be entered as 1234123451234501122016115022]																																																										0
+10					Date of Birth (DD/MM/YYYY)																					Nature of Employment
+11																										(Select)
+12					Details to be provided for communication purposes: 
+13					Primary Email ID of the taxpayer						Secondary Email ID														Primary Mobile No. of the taxpayer															Secondary Mobile No.
+14																									91
+15					Addresses to be provided for communication purposes: 
+16					Primary Address
+17					Flat / Door / Block No.																					Name of Premises / Building / Village																																		TOTAL_INCOME	0		0
+18																																																											#VALUE!	IncdSection80D	#VALUE!		0
+19					Road / Street/ Post Office																		Area / Locality																	Town / City / District																			#VALUE!	IncdSection80DB	#VALUE!
+20																																																													0
+21					State						Country/ Region																	PIN Code												No ZIP Code						ZIP Code															0				3
+22					(Select)						91-INDIA																																																						0
+23					Is the secondary address same as primary address?																																			(Select)
+24					Secondary Address:
+25					Flat / Door / Block No.																					Name of Premises / Building / Village
+27					Road / Street / Post Office																		Area / Locality																	Town / City / District
+29					State						Country / Region																	PIN Code												No ZIP Code						ZIP Code
+30					(Select)						(Select)
+31					Do you wish to exercise the option u/s 115BAC(6) of Opting out of new tax regime ? (default is “No”)
+1. By selecting "No" option your income and tax computation shall be as per “NEW TAX REGIME”
+2. By selecting "Yes" option your income and tax computation shall be as per “OLD TAX REGIME”
+Note- For Opting out, option should be exercised along with the return of income filed u/s 139(1).
+32					To estimate your total tax and decide as to which tax regime is beneficial, you may use income tax calculator
+33					Are you filing return of income under Seventh proviso to section 139(1) but otherwise not required to furnish return of income?
+If yes, please furnish following information
+[Note: To be filled only if a person is not required to furnish a return of income under section 139(1) but filing return of income due to fulfilling one or more conditions mentioned in the seventh proviso to section 139(1)]
+34					Have you deposited amount or aggregate of amounts exceeding Rs. 1 Crore in one or more current account during the previous year?
+35					Have you incurred expenditure of an amount or aggregate of amount exceeding Rs. 2 lakhs for travel to a foreign country for yourself or for any other person?
+36					Have you incurred expenditure of amount or aggregate of amount exceeding Rs. 1 lakh on consumption of electricity during the previous year?
+37					Are you required to file a return as per other conditions  prescribed under clause (iv) of seventh proviso to section 139(1)
+ (If yes,please furnish following information)
+38					The total sales, turnover or gross receipts, as the case may be, of the person in the business exceeds sixty lakh rupees during the previous year; or 
+39					the total gross receipts of the person in profession exceeds ten lakh rupees during the previous year; or
+40					the aggregate of tax deducted at source and tax collected at source during the previous year, in the case of the person, is twenty-five thousand rupees or more (fifty thousand for resident senior citizen); or 
+41					The deposit in one or more savings bank account of the person, in aggregate, is fifty lakh rupees or more, in the previous year
+42					A22	Whether this return is being filed by a representative assessee?
+If yes, please furnish following information 																								(Select)
+43						1	Name of the representative assessee
+44						2	Email-ID of the representative assessee
+45						3	Contact no of the representative assessee
+46																													Filed u/s                             Filed  in response to notice u/s    																														#VALUE!	IncdSection80DDB	0				FALSE	80000
+47																													139(1)-On or before due date																											11 - 139(1)-On or before due date
+48					"Tax payer is required to select section as "139(8A) in Part A General" while filing corrected return in response to notice u/s 139(9) issued against the ITR filed u/s 139(8A) and it is not mandatory to provide DIN and Date of Notice details.  Please refer FAQs in below path : "
+https://www.incometax.gov.in/iec/foportal/help/response-to-defective-notice%20-against-updated-return/faqs"
+49					If revised/defective then enter
+50					Receipt Number																						Date of filing of original return
+51					If filed in response to notice u/s 139(9)/142(1)/148/153C or order u/s 119(2)(b)-
+52					Unique Number/ Document Identification Number (DIN)																						Date of such Notice or Order
+53					Due Date of filing of ITR											31/07/2026
+54			    SALARY /  PENSION			i	Gross Salary (ia + ib + ic)																																		0
+55							a		Salary as per section 17(1)																																											0	0										0	SIT-86618 (Due to this SIT we have changed the condition
+56							b		Value of perquisites as per section 17(2)																																											0	0
+57							c		Profit in lieu of salary  as per section 17(3)																																											0	0	0
+58							d		Income from retirement benefit account maintained in a notified country u/s 89A																																0											0	0	0	This is old formula of 10(13A)
+59									Country																																Amount
+60									United States of America
+61									United Kingdom of Great Britain and Northern Ireland
+62									Canada
+63							e		Income from retirement benefit account maintained in a country  other than notified country u/s 89A																																0												0
+64						ii	Less : Allowances to the extent exempt u/s 10 (Ensure that it is included in salary income u/s 17(1)/17(2)/17(3) ) 																																		0
+65							Sl.No.			Nature of Exempt Allowance																Amount
+66					B1		1			(Select)
+67							2			(Select)
+69						Sec 10(13A)-Allowance to meet expenditure incurred on house rent																																			0
+70						iia	Less: Income claimed for relief from taxation u/s 89A 																																		0
+71						iii	Net Salary (i – ii )																																		0
+72						iv	Deductions u/s 16  (iva + ivb + ivc)																																		0
+73							a		Standard Deduction u/s 16(ia) 																																0													0
+74							b		Entertainment Allowance u/s 16(ii)																																0
+75							c		Professional Tax u/s 16(iii)																																0
+76						v	Income chargeable under the Head ‘Salaries’ (iii-iv)																																		0
+77			HOUSE
+PROPERTY		B2	Type of House Property																																			(Select)
+78						i	Gross rent received/ receivable/ lettable value during the year
+79						ii	Tax paid to local authorities
+80						iii	Annual Value (i – ii)																																		0
+81						iv	30% of Annual Value (30% * iii)																																		0
+82						v	Interest payable on borrowed capital																																		0
+83						vi	Arrears/Unrealised Rent received during the year Less 30%																																		0
+84							Income chargeable under the head ‘House Property’  ( Ʃ1k )  
+(If loss, put the figure in negative)
+Note : Maximum Loss from House property that can be set-off in computing income of  this year is INR 2,00,000. To avail the benefit of carry forward and set off of loss, please use  ITR-2"																																		0
+85						Income from Other Sources 																																			0													0	0
+86							Sl.No.			Nature of Income																Description ( If 'Any Other' selected) 															Amount
+87					B3		1																																															0	0	0	0	0
+88							2																																															0	0	0	0	0
+89							3																																															0	0	0	0	0
+90							4																																															0	0	0	0	0
+92						Income from retirement benefit account maintained in a country  other than a country notified u/s 89A
+93						Income from retirement benefit account maintained in a notified country u/s 89A  (1 + 2 + 3)																																			0
+94						1	United States of America
+95						2	United Kingdom of Great Britain and Northern Ireland
+96						3	Canada
+97						Income from retirement benefit account maintained in a notified country u/s 89A (Quarterly breakup of Taxable Portion)
+98						i	Upto 15-Jun-2025																																		0													0
+99						ii	From 16-Jun-2025 to 15-Sep-2025																																															0
+100						iii	From 16-Sep-2025 to 15-Dec-2025
+101						iv	From 16-Dec-2025 to 15-Mar-2026
+102						v	From 16-Mar-2026 to 31-Mar-2026
+103						Dividend  (i+ii+iii+iv+v)																																			0
+104						i	Upto 15-Jun-2025																																		0																												0	45690
+105						ii	From 16-Jun-2025 to 15-Sep-2025																																		0																												0	45690
+106						iii	From 16-Sep-2025 to 15-Dec-2025																																		0																												0	45690
+107						iv	From 16-Dec-2025 to 15-Mar-2026																																		0																												0	45690
+108						v	From 16-Mar-2026 to 31-Mar-2026																																		0																												0	0
+109						Less :  Income claimed for relief from taxation u/s 89A																																			0
+110						Less: Deduction u/s 57(iia) (In case of family pension only)																																														0	0			0
+111					4	Gross Total Income (1+2+3) (If loss, put the figure in negative)
+Note: To avail the benefit of carry forward and set off of loss, please use  ITR-2																																			0									For deduction we're using GTI which didn't included 112A						0							0
+112					B4	Gross Total Income (B1+B2+B3+C3a(iii)) (If loss, put the figure in negative)
+Note: To avail the benefit of carry forward and set off of loss, please use  ITR-2																																			0
+113					C	Part C – Deductions and Taxable Total Income 																						Amount												System Calculated
+114						Please note that the deduction in respect of the investment/ deposit/ payments for the period 01-04-2020 to 31-07-2020 cannot be claimed again, if already claimed in the AY 2020-21) 
+115						a		80C - Life insurance premium, deferred annuity, contributions to provident fund, subscription to certain equity shares or debentures, etc.																	5a			0												0	0	0	0	0	0	0	0	0								0
+116						b		80CCC - Payment in respect Pension Fund, etc.																	5b			0												0	0	0	0	0	0	0	0	0
+117						Sl.No.		Type of Identifier																	Identifier No.															Amount
+118						1
+119						2
+121						c		80CCD(1) - Contribution to pension scheme of Central Government																	5c			0												0	0	0	0	0	0	0	0	0
+122						Sl.No.		Type of Identifier																	Name of Identifier															Amount
+123						1
+124						2
+126						d		80CCD(1B) - Contribution to pension scheme of Central Government																	5d			0												0													0
+127						Sl.No.		Type of Identifier																	Name of Identifier															Amount
+128						1
+129						2
+131								PRAN
+132						1
+133						2
+134						3
+136						PRAN of the taxpayer
+137			 DEDUCTIONS			e		80CCD(2) - Contribution to pension scheme of Central Government by employer																	5e															0	0	0	0	0	0	0	0	0
+138						f		80CCG - Investment made under an equity savings scheme																	5f															0	0
+139						PRAN of the taxpayer
+140						f		80D-Deduction in respect of Health Insurance premia. (Please fill 80D Schedule. This field is auto-populated from schedule 80D.)																	5f			0												0
+141								a) Health insurance premium			(Select)														5ga															0														Sum of 80DA and 80DC		0	80D	0
+142								b) Medical expenditure			(Select)														5gb																													Combination of 80DA and 80DB		0
+143								c) Preventive health check-up			(Select)														5gc																													Check and Final Sum of 80DA & 80DC		0			(	0
+144						g		80DD - Maintenance including medical treatment of a dependent who is a person with disability.(Please fill 80DD Schedule. This field is auto-populated from schedule 80DD.)																	5g			0												0																				0
+145						h		80DDB - Medical treatment of specified disease			Name of the specified Disease														5h			0												0
+146								(Select)			(Select)
+147						i		80E - Interest on loan taken for higher education																	5i			0												0
+148						j		80EE - Interest on loan taken for residential house property																	5j			0												0
+149						k		80EEA-Deduction in respect of interest on loan taken for certain house property																	5k			0												0
+150						l		80EEB-Deduction in respect of purchase of electric vehicle																	5l			0												0
+151						m		80G - Donations to certain funds, charitable institutions, etc. (Please fill 80G Schedule. This field is auto-populated from schedule 80G.)																	5m			0	0	0	0	0	0	0	0	0	0	0	0	0
+152						n		80GG - Rent paid (Please submit form 10BA to claim deduction)																	5n			0												0
+153						Acknowledgement number of Form 10BA
+154						o		80GGA - Certain donations for scientific  research or rural development (Please fill 80GGA Schedule. This field is auto-populated from schedule 80GGA.)																	5o			0												0
+155						p		80GGC - Contribution to Political party. 
+(Please fill 80GGC Schedule. This field is auto-populated from schedule 80GGC.)																	5p			0												0
+156						p		80 QQB - Royalty income of authors of certain books.
+																	5p
+157						q		80 RRB - Royalty on patents																	5q
+158						q		80TTA - Interest on saving bank Accounts in case of other than Resident senior citizens																	5q			0												0																0
+159						r		80TTB- Interest on deposits in case of Resident senior citizens																	5r			0												0																0
+160						s		80U - In case of a person with disability.(Please fill 80U Schedule. This field is auto-populated from schedule 80U.)																	5s			0												0																				0
+161						t		80CCH-Contribution to Agnipath Scheme																	5t			0												0																				0
+162						u		Any Other deductions																	5u
+163					C1	Total Deductions (Total of 5a to 5t)																			C1			0	0	0	0	0	0	0	0	0	0	0	0	C1	0
+164					7	Total Income (4 - 6)																																		7	0									For slab rates,234ABC we're using total income in  which didn't included 112A
+165					C2	Total Income (B4-C1)
+Note: The Total Income Field includes LTCG u/s 112A. However, no tax would be payable on the said income.																																		C2	0
+166					C3	Exempt Income: For reporting purpose and Income on which no tax is payable
+167						Sl.No.		Category												Sub-Category														Description								Amount
+168						1
+169						2																																															0	0
+171						Total Exempt Income 																																			0
+172					C3(a)	 Long Term capital gains u/s 112A not chargeable to Income-tax
+173						i	Total sale consideration																																	i
+174						ii	Total cost of acquisition																																	ii
+175						iii	Long term capital gains as per sec 112A																																	iii	0
+176					D1	Tax Payable on Total Income 																																		D1	0
+177					D2	Rebate u/s 87A																																		D2	0																		0	Rebate us/87A Old Formula
+178					D3	Tax payable after Rebate 																																		D3	0
+180					D4	Health and Education Cess @4% on (D3)																																		D4	0
+181					D5	Total Tax and Cess(D3+D4)																																		D5	0
+182					D6	Relief u/s 89 (Please ensure to submit Form 10E to claim this relief)																																		D6	0											0
+183					13a	Relief u/s 89A																																		13a	0											0
+184						Balance Tax after Relief (D5-D6)																																			0																		Verification Date		2
+185					D7	Interest u/s 234 A																																		D7	0																		Verification Month		8
+186					D8	Interest u/s 234 B																																		D8	0																		Verification Year		2026
+187					D9	Interest u/s 234 C																																		D9	0
+188					D10	Fee u/s 234F																																		D10	0																		Due Date + 1		43313
+189					D10a	Fee for furnishing revised return of income (section 234-I)																																		D10a	0
+190						Total Interest, Fee Payable (D7+D8+D9+D10+D10a)																																			0																		Year End Date		43465
+191					D11	Total Tax , Fee and  Interest (D5+D7+D8+D9+D10+D10a-D6)																																		D11	0

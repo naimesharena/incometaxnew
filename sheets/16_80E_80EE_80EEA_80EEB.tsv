@@ -1,0 +1,27 @@
+row	A	B	C	D	E	F	G	H	I	J	K	L	M	N	O	P	Q	R	S	T	U	V	W	X
+2		Section 80E	Interest on loan taken for higher education
+3			Sl. No.	Loan taken from 	IFSC code of the bank from which the loan is taken	PAN of the Institution from which the loan is taken.	Name of the bank/ Institution from which the loan is taken                          	Loan Account Number of the Bank/Institution	Date of sanction of loan	Total amount of loan	Loan outstanding as on last date of financial year	Interest u/s 80E
+4				(i)	(iia)	(iib)	(ii)	(iii)	(iv)	(v)	(vi)	(vii)
+5			1	(Select)
+6			2	(Select)
+8			Total of Interest u/s 80E									0
+13		Section 80EE	 Interest on loan taken for residential house property
+14			Value of the residential house property
+15			Sl. No.	Loan taken from 	IFSC code of the bank from which the loan is taken	PAN of the Institution from which the loan is taken.	Name of the bank/ Institution from which the loan is taken                          	Loan Account Number of the Bank/Institution	Date of Sanction of loan	Total amount of loan	Loan outstanding as on last date of financial year	Interest u/s 80EE
+16				(i)	(iia)	(iib)	(ii)	(iii)	(iv)	(v)	(vi)	(vii)
+17			1	(Select)																			0	___
+18			2	(Select)																				___
+20			Total of Interest u/s 80EE									0
+25		Section 80EEA	Deduction in respect of interest on loan taken for certain house property
+26			Stamp Value of residential house property
+27			Sl. No.	Loan taken from 	IFSC code of the bank from which the loan is taken	PAN of the Institution from which the loan is taken.	Name of the bank/ Institution from which the loan is taken                          	Loan Account Number of the Bank/Institution	Date of sanction of loan	Total amount of loan	Loan outstanding as on last date of financial year	Interest u/s 80EEA
+28				(i)	(iia)	(iib)	(ii)	(iii)	(iv)	(v)	(vi)	(vii)
+29			1	(Select)																			___
+30			2	(Select)																			___
+32			Total of Interest u/s 80EEA									0
+37		Section 80EEB	Deduction in respect of interest Paid on purchase of electric vehicle
+38			Sl. No.	Loan taken from	IFSC code of the bank from which the loan is taken	PAN of the Institution from which the loan is taken.	Name of the bank/ Institution from which the loan is taken                          	Loan Account Number of the Bank/Institution	Date of sanction of loan	Total amount of loan 	Loan outstanding as on last date of financial year	Vehicle registration number	Interest u/s 80EEB
+39				(i)	(iia)	(iib)	(ii)	(iii)	(iv)	(v)	(vi)	(vii)	(viii)
+40			1	(Select)
+41			2	(Select)
+43			Total of Interest u/s 80EEB										0

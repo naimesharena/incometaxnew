@@ -1,0 +1,8 @@
+cell	formula	cached_value
+E6	Naturedisability_80U_v	0
+S7	MIN(IF(MID(Naturedisability_80U,1,1)="1",75000,IF(MID(Naturedisability_80U,1,1)="2",125000)),T7)	0
+T7	MAX(IncD.GrossTotIncome,0)	0
+N9	IF(MID(Naturedisability_80U,1,1)="1",75000)	FALSE
+R18	MIN(IF(MID(Naturedisability_80DD,1,1)="1",75000,IF(MID(Naturedisability_80DD,1,1)="2",125000)),TOTAL_INCOME_80DD)	0
+S18	MAX(IncD.GrossTotIncome,0)	0
+E20	Naturedisability_80DD_v	0

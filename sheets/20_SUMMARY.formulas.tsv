@@ -1,0 +1,11 @@
+cell	formula	cached_value
+D6	Ver.AssesseeVerName	0
+D7	sheet1.PAN	0
+D8	IF(LEN(Ver.FatherName)>0,Ver.FatherName,"")	
+D9	IF((Ver.Date)>0,Ver.Date,"")	02/08/2026
+D10	IF(LEN( Ver.PAN)>0, Ver.PAN,"")	
+E14	IF(SUM(TDSal.TotalTDSSalary)>0,SUM(TDSal.TotalTDSSalary),0)	0
+E15	IF(SUM(TDSoth.6income)>0,SUM(TDSoth.6income),0)	0
+E16	IF(SUM(TDS26QB.6income)>0,SUM(TDS26QB.6income),0)	0
+E17	IF(SUM(TaxP.Amt)>0,SUM(TaxP.Amt),0)	0
+E18	IF(TCS.Sum>0,TCS.Sum,0)	0

@@ -1,0 +1,11 @@
+row	A	B	C	D	E	F	G	H	I	J	K	L	M	N	O	P	Q	R	S	T
+3			Schedule 80U	Details of deduction in case of a person with disability
+4			Nature of disability	Type of disability	Amount of deduction	Ack. No. of Form 10IA filed	UDID Number (If available)
+5			(i)	(ib)	(ii)	(iii)	(iv)
+6			(Select)	(Select)	0
+7																			0	0
+9														FALSE
+17			Section 80DD	Details of deduction in respect of maintenance including medical treatment of a dependent who is a person with disability.
+18			Nature of disability	Type of disability	Amount of deduction	Type of dependent	PAN of the dependent	Aadhaar of the dependent	Ack. No. of Form 10IA filed	UDID Number (If available)								0	0
+19			(i)	(ib)	(ii)	(iii)	(iv)	(v)	(vi)	(vii)
+20			(Select)	(Select)	0	(Select)

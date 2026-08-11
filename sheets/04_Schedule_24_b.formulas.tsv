@@ -1,0 +1,7 @@
+cell	formula	cached_value
+W5	TRIM(G5)&"_"&TRIM(H5)&"_"&TRIM(I5)&"_"&TRIM(J5)	___
+C6	C5+1	2
+W6	TRIM(G6)&"_"&TRIM(H6)&"_"&TRIM(I6)&"_"&TRIM(J6)	___
+C7	C6+1	3
+C8	C7+1	4
+L10	SUM(Intrst.24b)	0

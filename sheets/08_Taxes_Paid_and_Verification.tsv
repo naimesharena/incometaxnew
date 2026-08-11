@@ -1,0 +1,60 @@
+row	A	B	C	D	E	F	G	H	I	J	K	L	M	N	O	P	Q	R	S	T	U	V	W	X	Y
+3			TAXES PAID		Total Taxes Paid
+ PLEASE NOTE THAT CALCULATED FIELDS (IN WHITE) ARE PICKED UP FROM OTHER SCHEDULES AND ARE NOT TO BE ENTERED. For ex :  The taxes paid figures below will get filled up when the Schedules linked to them are filled.    
+4					D12(a)	Total Advance Tax Paid (from item 21)			0
+5					D12(c)	Total TDS Claimed (Total from item 18 + item 19 + item 20)			0
+6					D12(d)	Total TCS Claimed (Total from item 22)			0
+7					D12(b)	Total Self Assessment Tax Paid (from item 21)			0
+8				D12	Total Taxes Paid D12(a+b+c+d)				0
+9				D13	Amount payable
+(D11-D12) 
+(if D11>D12)				0
+10				D14	Refund 
+(D12-D11)
+ (if D12>D11) 				0
+11				26	Enter your Bank Account number (Refund if any will directly credited into Bank Account)
+12				27	IFS Code				(Select)
+13				27	Exempt income (For reporting Purposes)
+14					a
+15					b
+16					c	Others
+17						Sl.No	Nature of Income	Description ( If 'Any Other' selected) 	Amount
+18						1	Agriculture Income (≤ Rs.5000)	NA
+19						2	Sec.10(34) (Exempted Dividend Income)	NA
+20						1	(Select)	NA
+21						2	(Select)	NA
+22						3	(Select)	NA
+23						4	(Select)	NA
+26					e	Total Amount			0
+27				27	Do you have a bank account in India (Non-residents claiming refund with no bank account in India may select NO)?				YES
+28					Total number of savings and current bank accounts held by you at any time during the previous year (excluding dormant accounts).
+
+29					Provide the details below
+30				27	Details of all Bank Accounts held in India  at any time during the previous year (excluding dormant accounts).
+Note: If you do not have any bank account in India, enter the details as IFSC - NNNN0NNNNNN, Name of Bank - NOT APPLICABLE, Account No. - NA999.
+
+31				(i)	Details of all Bank Accounts held in India at any time during the previous year (excluding dormant accounts)
+32					Sl.No.	IFS Code of the Bank	Name of the Bank	Account Number
+	Type of account	Select Account for Refund Credit
+33					1										FALSE	FALSE
+34					2										FALSE
+35																TRUE
+36				Note:
+37				1.All bank accounts held at any time are to be reported, except dormant A/c.
+2. In case of multiple accounts, refund will be credited to one of the validated accounts other than account types "Others" after processing the return.                                                                                                                                                                                                               3.Minimum one account should be selected for refund credit. 
+41							(Do Not Delete Blank Rows)
+42			VERIFICATION
+43			I, (full name in block letters),					son/daughter of
+45			solemnly declare that to the best of my knowledge and belief, the information given in the return is correct and complete and is in accordance with the provisions 
+46			 of the Income-tax Act, 1961.  I further declare that I am making this return in my capacity as  					(Select)	and I am also competent to make																FALSE
+47			 this return and verify it.				I am holding Permanent Account Number
+48			Date (System Date)				02/08/2026	Place
+49			27	If the return has been prepared by a Tax Return Preparer (TRP) give further details below:
+50				Identification No. of TRP				NAME OF TRP
+51				If TRP is entitled for any reimbursement from the Government, amount thereof
+52				NOTE :     
+1. Submission date is the system date of e-Filing portal of Income Tax Department. The same is available in the Acknowledgement/ITR-V generated after submission of return.     
+2. Verification Date is the date of e-Verification at e-Filing portal of Income Tax Department or the date of receipt of ITR-V at CPC, Bengaluru. The same will be available in View Returns/Forms option of e-Filing portal. In case of e-Verification, it is available in Acknowledgement 
+57			28	If the return has been prepared by a Tax Return Preparer (TRP) give further details as below:
+58			Identification No of TRP				Name of TRP
+60			29	If TRP is entitled for any reimbursement from the Government, amount thereof (to be filled by TRP) 

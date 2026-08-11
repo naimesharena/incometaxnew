@@ -1,0 +1,14 @@
+cell	formula	cached_value
+I8	MAX(SUM(I4:I7),0)	0
+I9	ROUND(IF(IncD.TotTaxPlusIntrstPay>IncD.TotalTaxesPaid, MAX(IncD.TotTaxPlusIntrstPay-IncD.TotalTaxesPaid,0),0),-1)	0
+I10	ROUND(IF(IncD.TotTaxPlusIntrstPay<IncD.TotalTaxesPaid, MAX(IncD.TotalTaxesPaid-IncD.TotTaxPlusIntrstPay,0),0),-1)	0
+F19	F18+1	2
+F21	F20+1	2
+F22	F21+1	3
+F23	F22+1	4
+I26	SUM(Others.Amount)	0
+O33	IF(F33<>"",VLOOKUP(MID(F33,1,4),IFSCBank,2,FALSE))	FALSE
+E34	E33+1	2
+O34	IF(F34<>"",VLOOKUP(MID(F34,1,4),IFSCBank,2,FALSE))	FALSE
+Y46	calculateAge(sheet1.DOB)<18	FALSE
+G48	CONCATENATE(IF(DAY(TODAY())<10,"0",""),DAY(TODAY()),"/",IF(MONTH(TODAY())<10,"0",""),MONTH(TODAY()),"/",YEAR(TODAY()))	02/08/2026

@@ -1,0 +1,4 @@
+cell	formula	cached_value
+G7	IF(AND(BacValue=2,MID(_xlfn.SINGLE(sheet1.EmployerCategory1),1,3)<>"Not"),MAX(0,SUM(Sch10of13A_BasicSalary,Sch10of13A_DearAllowance)),0)	0
+G10	IF(AND(BacValue=2,MID(_xlfn.SINGLE(sheet1.EmployerCategory1),1,3)<>"Not"),MAX(0,(Sch10of13A_ActlRentpaid-ROUND((Sch10of13A_DetlsofSalpersec17of1*0.1),0))),0)	0
+G12	IF(AND(BacValue=2,MID(_xlfn.SINGLE(sheet1.EmployerCategory1),1,3)<>"Not"),MIN(Sch10of13A_ActlHRArecivedA,Sch10of13A_Actlrentpaid10persalaryB,Sch10of13A_50Por40Pofsalary),0)	0

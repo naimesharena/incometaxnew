@@ -1,0 +1,73 @@
+row	A	B	C
+3		How to use this Excel Utility 
+4	i	Overview
+5	ii	Before you begin
+6	iii	Structure of the ITR utility
+7	iv	Filing and Using the Excel utility 
+8	v	Validating the sheets
+9	vi	Navigation
+10	vii	Calculate Tax
+11	viii	Generating the JSON
+12	ix	Printing
+13	x	Importing
+14	xi	How to submit an ITR using Excel utility?
+16	i	Overview :
+17		Fill up applicable schedules	Navigate to each schedule applicable and fill the data.
+18		Validate each sheet	Click on the 'Validate' Button on each filled sheet .Correct errors (if any) identified by the validate feature.
+19		Click on Calculate Tax	Fill the necessary details in applicable schedules and click on 'Calculate Tax' for computation of tax. 
+Please make sure you click the 'Calculate Tax' button before generation of JSON.  
+20		Generate JSON	After all required schedules have been filled ,validated and tax has been calculated (using 'Calculate Tax' button), click on Generate JSON which will recheck all sheets.
+21		Save JSON	To save the JSON in the desired path, click on the 'Save JSON' button.
+22		Upload the JSON	To upload the saved JSON, Go to https://incometaxindiaefiling.gov.in -> Login -> e-File  -> Income Tax Return.
+24	ii	Before you begin :
+25		Read the instructions for filling up the form available in the following website:  http://www.incometaxindia.gov.in
+26		The ITR Utility is an Excel Workbook that consists of a number of individual, integrated worksheets. Each of the sheets contains one or more schedules for data entry. Initially, all the sheets are visible to the user. A number of these sheets are optional. The user can decide which sheets are applicable to their case and accordingly select Y or N to hide or show the sheets. Similarly , by selecting the sheets which the user needs for printing, it is possible to control how many sheets should be printed (in case all sheets are not required to be printed). Later on, these settings can always be changed.      
+28	iii	Structure of the ITR utility :
+29		Various sheets and schedules per sheet form part of the Utility. Each sheet includes a number of distinct, titled sections/schedules. 
+30		Each sheet is identified by the sheet tabs located at the bottom of the Excel window. These tabs are labeled with abbreviation forms of the schedules of the sheet.
+32	iv	Filing and Using the Excel utility :
+33		Every section/schedule is colour coded to facilitate the user. The different types of cells in the sheets are as follows:
+34		a) The mandatory fields are marked in red. The data entered will have a  green background colour (Certain fields are mandatory under specific conditions only).
+35		b) Data entry cells for optional/non-mandatory fields have a black font and a green background colour. 
+36		c) Fields whose values are auto calculated /auto populated by the utility  have a blue font and a white background colour. Linked fields, where no data entry is done by the user, but a value is picked up from an existing cell elsewhere in the sheet, these have  a blue font for the labels and a white background.      
+37		All amounts are in Indian Rupee.
+38		All date fields must be entered in dd/mm/yyyy format. (Example: 22/03/2021)
+39		For percentage fields, only enter the  value upto two decimal places. (percentage symbol is not required).
+40		Adding more rows : Schedules such as TDS, TCS, IT etc  allow users to enter data in tabular format. Using the 'Add rows' button provided below these tables, the assessee can add as many rows as required.
+Note: Rows once added and not required (or empty rows) should not be deleted, even if they are blank. The utility does not generate JSON for rows left blank.
+42	v	Validating the sheets :
+43		Validate the filled sheet using the 'Validate' button. Correct errors (if any) identified by the validate feature.
+45	vi	Navigation :  
+46		There are two navigation buttons in the utility : 'Next' and 'Previous'. The user can navigate between the sheets by either clicking on next or previous buttons as required.    
+48	vii	Calculate Tax :  
+49		For the Tax to be computed the user must click on the 'Calculate Tax' button after filling the necessary details in applicable schedules. 
+51	viii	Generating the JSON :
+52		Verify all the information entered in the ITR Utility.
+53		Click on the 'Generate JSON' button. This will revalidate all the sheets, and direct the user to the confirmation page which shows the various schedules (and the no of rows per schedule) being generated. 
+54		Once verified, the assessee can then click on 'Save JSON' option to generate and save the JSON. 
+55		After successfully generating, a message will be displayed with the name and location of the saved JSON.
+56		This JSON can then be uploaded in the efiling portal.
+58	ix	Printing : 
+59		The print button in the utility provides an option to print  after previewing.
+61	x	Importing :
+62		a) Import Previous Version
+63		If the user has a filled ITR in a previous version, the user can import the data from the previous version to the current version. To import click on the  'Import Previous Version' button in the utility and browse the path of the previous version of  filled ITR. 
+64		b) Import Personal and Tax Details from Prefilled JSON
+65		The user can  import the personal and Tax details into ITR1 excel utility by following the given steps.
+66		Step 1 : Login into the e-Filing portal using valid login credentials.
+67		Step 2 : Go to the 'Downloads' menu and click the 'Download Prefilled JSON' link. Select the 'Assessment Year' and download the Prefilled JSON in the desired location.
+68		Step 3 : Open the utility and click on the 'Import Personal/Tax Details from JSON' button. 
+69		c) Import from JSON
+70		If the user has a generated JSON, the user can import the data from the generated JSON to utility. To import click on the  'Import Personal and Tax Details from Prefilled JSON' button in the utility and browse the path of the generated JSON. 
+73	xi	How to submit an ITR using Excel utility?
+74		1.Download the ITR preparation utility for the assessment year under 'Downloads'.
+75		2.Prepare the Income Tax  return using the utility. Validate, Generate and Save the JSON in the desired path.
+76		3. Login to e-Filing portal (https://incometaxindiaefiling.gov.in) and go to e-File --> Income Tax Return.
+77		4.Select the appropriate ITR, Assessment Year and JSON (using browse button).
+78		5.Upload Digital Signature Certificate(DSC) if applicable. Please ensure the DSC is registered with e-Filing.
+79		6.Click on 'SUBMIT' button.
+80		7.On successful submission, ITR-V/Acknowledgement would be displayed. Click on the link and download the ITR-V/Acknowledgement.
+81		Note:
+If ITR is uploaded with DSC, the Return Filing process is complete. The return will be further processed and the Assessee will be notified accordingly. Please check your emails on these notifications.
+OR
+The return is not uploaded with a DSC, an ITR-V Form should be printed, signed and submitted to CPC, Bangalore using Ordinary Post or Speed Post ONLY within 120 days from the date of e-Filing. On receipt of the ITR-V at CPC, the return will be further processed and the Assessee will be notified accordingly. Please check your emails on these notifications.
