@@ -31,7 +31,8 @@ report: [`../docs/EXCEL_REVERSE_ENGINEERING_GAP_REPORT.md`](../docs/EXCEL_REVERS
 | AMT 115JC (18.5%, 20L threshold, N/A in new regime) + AMTC 115JD 15-AY credit grid | ✅ `amt.py` |
 | DTAA relief u/s 90/91 (lower-of-two / lower-rate methods) | ✅ `dtaa.py` |
 | Part B-TI/TTI capstone: special-rate band taxes (20/30/12.5/10%), 87A on TI excl. 112A, regime-aware surcharge (new capped 25%, old 37%), cess, MAX(regular, AMT) | ✅ `ti_tti.py` |
-| ITR-2/3 JSON builders, Schedule 115AD(1)(iii), web UI | ⏳ next |
+| **ITR-2 model + JSON builder** (schema-autofill technique, strict 0-error validation) | ✅ `itr2.py` + `itr2_json.py` (5 tests) |
+| ITR-3 (BP/business income block), Schedule 115AD(1)(iii), web UI | ⏳ next |
 | ITR-2 / ITR-3 (CG, BP, P&L, CYLA/CFL, AMT, DTAA, SPI/SI) | ⏳ planned |
 | Web UI (form entry + live validation) | ⏳ planned |
 

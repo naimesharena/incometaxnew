@@ -274,7 +274,8 @@ Development has started on the confirmed extraction. Status of the §10 backlog:
 | AMT 115JC: adjusted TI = TI + VI-A(excl QQB/RRB) + 10AA + 35AD; 18.5% + surcharge only if adj TI > 20L & VI-A claimed; N/A new regime. AMTC 115JD: 15-AY credit grid, zeroed in new regime | ✅ `amt.py` (7 tests) |
 | DTAA relief u/s 90 (MIN foreign tax vs Indian incremental tax) & u/s 91 (lower-rate method) | ✅ `dtaa.py` (2 tests) |
 | Part B-TI/TTI capstone: special-rate band taxes (111A 20%, 112A 12.5% with 1.25L exempt, 30%/10% legacy bands), 87A tested on TI excl. 112A [AO177 semantics], surcharge new capped 25% vs old 37%, cess, MAX(regular, AMT) rule | ✅ `ti_tti.py` (7 tests) — 105 tests total |
-| Schedule 115AD(1)(iii) proviso, ITR-2/3 JSON builders, web UI | ⏳ backlog (§10) | |
+| ITR-2 return model (heads + CG waterfall + CYLA/BFLA/CFL + VI-A + TI/TTI + interest + refund) and JSON builder; introduced schema-autofill technique (recursive required-leaf skeleton from the draft-04 schema, then real-value overlay) | ✅ `itr2.py` + `itr2_json.py` — **100 % schema-valid** (5 tests, 110 total) |
+| Schedule 115AD(1)(iii) proviso, ITR-3 model/builder (BP schedules), web UI | ⏳ backlog (§10) | |
 
 Demo: `software/run_demo.py` computes a 14 LPA new-regime return (tax 78,750 + cess 3,150 = 81,900; balance payable 22,776 after TDS 60,000) and emits a **schema-valid** CBDT JSON.
 
