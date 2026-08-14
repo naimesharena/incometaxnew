@@ -9,7 +9,7 @@ Every field name/format here is checked against the official draft-04 schema
 (see validate_against_schema + tests/test_itr1_pipeline.py).
 """
 from datetime import date, datetime
-import base64, hashlib, json
+import base64, hashlib, json, re
 
 from . import constants as C
 from .itr1 import ITR1Return
@@ -83,9 +83,10 @@ def build_itr1_json(ret: ITR1Return) -> dict:
             "SurNameOrOrgName": p.last_name,
         },
         "PAN": p.pan,
-        "AadhaarCardNo": p.aadhaar_number,
         "DOB": _iso(p.date_of_birth),
         "EmployerCategory": _empcat(p.nature_of_employment),
+        **({"AadhaarCardNo": p.aadhaar_number}
+           if re.fullmatch(r"\d{12}", p.aadhaar_number or "") else {}),
         "Address": {
             "ResidenceNo": pa.flat_door_block or "-",
             "ResidenceName": pa.name_of_premises,
@@ -112,7 +113,7 @@ def build_itr1_json(ret: ITR1Return) -> dict:
     os_items = []
     for nature, desc, amt in ret.other_sources.items:
         os_items.append({"OthSrcNatureDesc": _os_code(nature),
-                         "OthSrcOthNatOfInc": desc or None,
+                         "OthSrcOthNatOfInc": desc or "",
                          "OthSrcOthAmount": int(amt)})
     div = ret.other_sources.dividend_by_quarter
     if any(div):
@@ -211,13 +212,16 @@ def build_itr1_json(ret: ITR1Return) -> dict:
     }
 
     # ---------------- taxes paid / refund / verification ----------------
+    _tan_re = re.compile(r"(?:" + "|".join(TAN_PREFIXES) + r")[A-Z][0-9]{5}[A-Z]")
+    _tds_sal_list = [t for t in ret.taxes_paid.tds_salary
+                     if _tan_re.fullmatch(t.tan or "")]
     tds_sal = {
-        "TotalTDSonSalaries": int(sum(t.tds_amount for t in ret.taxes_paid.tds_salary)),
+        "TotalTDSonSalaries": int(sum(t.tds_amount for t in _tds_sal_list)),
         "TDSonSalary": [
             {"EmployerOrDeductorOrCollectDetl": {
                 "TAN": t.tan, "EmployerOrDeductorOrCollecterName": t.employer_name},
              "IncChrgSal": 0, "TotalTDSSal": int(t.tds_amount)}
-            for t in ret.taxes_paid.tds_salary
+            for t in _tds_sal_list
         ],
     }
     tds_other = {

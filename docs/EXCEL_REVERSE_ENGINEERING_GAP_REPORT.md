@@ -277,7 +277,8 @@ Development has started on the confirmed extraction. Status of the §10 backlog:
 | ITR-2 return model (heads + CG waterfall + CYLA/BFLA/CFL + VI-A + TI/TTI + interest + refund) and JSON builder; introduced schema-autofill technique (recursive required-leaf skeleton from the draft-04 schema, then real-value overlay) | ✅ `itr2.py` + `itr2_json.py` — **100 % schema-valid** (5 tests, 110 total) |
 | ITR-3 business engine: P&L net profit + inadmissible add-backs + IT-rules depreciation (block-wise, 15%/full/half for <180-day additions) [PARTA_PL + DPM sheet rules], speculation & 35AD tracks isolated per CYLA/BFLA rules | ✅ `business.py` (4 tests) |
 | ITR-3 model + JSON builder (PartA_GEN2 audit flags, PARTA_BS/PL, ITR3ScheduleBP adjustment chain incl. DepreciationAllowITAct32/NetPLAftAdjBusOthThanSpec/NetPLBusOthThanSpec7A7B7C, ProfBusGain, ITR-3 due-date enum 31/08/2026) | ✅ **100 % schema-valid** (4 tests) — **all 4 forms complete, 116 tests** |
-| Schedule 115AD(1)(iii) proviso detail, web UI with live validation | ⏳ backlog (§10) | |
+| Web application: FastAPI + single-page filing UI for all 4 forms — spec-driven dynamic fields, live tax computation with full breakdown, Category-A validation messages, CBDT JSON generation with in-request schema validation (all 4 forms verified 0 errors through the API) | ✅ `software/web/` |
+| Schedule 115AD(1)(iii) proviso detail, e-filing portal prefill integration, draft save/load | ⏳ backlog (§10) | |
 
 Demo: `software/run_demo.py` computes a 14 LPA new-regime return (tax 78,750 + cess 3,150 = 81,900; balance payable 22,776 after TDS 60,000) and emits a **schema-valid** CBDT JSON.
 

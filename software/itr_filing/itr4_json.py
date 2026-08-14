@@ -42,7 +42,8 @@ def build_itr4_json(ret: ITR4Return) -> dict:
         "AssesseeName": {"FirstName": p.first_name, "MiddleName": p.middle_name,
                          "SurNameOrOrgName": p.last_name},
         "PAN": p.pan,
-        "AadhaarCardNo": p.aadhaar_number,
+        **({"AadhaarCardNo": p.aadhaar_number}
+           if (p.aadhaar_number or "").isdigit() and len(p.aadhaar_number) == 12 else {}),
         "DOB": _iso(p.date_of_birth or ret.dob),
         "EmployerCategory": _empcat(p.nature_of_employment),
         "Status": ret.entity,

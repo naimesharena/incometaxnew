@@ -34,7 +34,8 @@ report: [`../docs/EXCEL_REVERSE_ENGINEERING_GAP_REPORT.md`](../docs/EXCEL_REVERS
 | **ITR-2 model + JSON builder** (schema-autofill technique, strict 0-error validation) | ✅ `itr2.py` + `itr2_json.py` (5 tests) |
 | **ITR-3 business engine**: P&L adjustments, DPM depreciation blocks (180-day 50% rule), speculation/specified-business isolation, presumptive reuse | ✅ `business.py` |
 | **ITR-3 model + JSON builder** (PARTA_BS/PL, ITR3ScheduleBP full adjustment chain, audit flags, ProfBusGain) | ✅ 100 % schema-valid (`itr3.py` + `itr3_json.py`) |
-| Schedule 115AD(1)(iii) detail, web UI with live validation | ⏳ next |
+| **Web application**: FastAPI + single-page UI — dynamic forms for all 4 ITRs, live computation (Part-D breakdown, 234B/C/F), validation messages, one-click **schema-valid CBDT JSON download** | ✅ `web/` (run `python3 web/app.py`, port 8000) |
+| Schedule 115AD(1)(iii) detail, e-filing portal integration (prefill APIs) | ⏳ next |
 | ITR-2 / ITR-3 (CG, BP, P&L, CYLA/CFL, AMT, DTAA, SPI/SI) | ⏳ planned |
 | Web UI (form entry + live validation) | ⏳ planned |
 
