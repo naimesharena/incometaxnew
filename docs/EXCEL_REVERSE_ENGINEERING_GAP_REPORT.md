@@ -268,7 +268,9 @@ Development has started on the confirmed extraction. Status of the §10 backlog:
 | ITR-4 engine core: entity-aware slabs (TaxCalc GrpA/B/C/HUF/Firm), surcharge 10/15/12% + marginal relief, cess post-rebate, 87A individuals-only, presumptive 44AD (6%/8%, 3Cr cap), 44ADA (50%, 75L), 44AE (₹1,000/MT & ₹7,500/month), 50L eligibility | ✅ `software/itr_filing/itr4.py` (10 tests) |
 | ITR-4 JSON builder (Form 10IEA flags, ScheduleBP 44AD/ADA/AE detail, due date 31/08/2026) - 100 % schema-valid | ✅ `software/itr_filing/itr4_json.py` |
 | ITR-2/3 CYLA current-year set-off engine: 17 income buckets incl. AY 26-27 CG rates (STCG 15/20/30, LTCG 10/12.5/20/DTAA), HP loss 2L cap + set-off order, BP/OS loss orders, new-regime HP-loss rule | ✅ `software/itr_filing/setoff.py` (8 tests) |
-| ITR-2/3 BFLA + CFL carry-forward, full CG schedule (indexation removed AY26-27, 112A/115AD), AMT, DTAA | ⏳ backlog (§10) | |
+| ITR-2/3 BFLA brought-forward set-off (HP/BP/speculation/specified/STCG/LTCG/racehorse orders, unabsorbed depreciation any-head-except-salary) + CFL tracker (8-AY HP/BP/CG, 4-AY speculation/race-horse, indefinite depreciation & 35AD) decoded from CFL grid rows 6-25 | ✅ `carry_forward.py` (11 tests) |
+| CG engine: 112A grandfathering MAX(cost, MIN(FMV 31/01/2018, sale)), unified holding periods (12 mo securities / 24 mo other, post 23/07/2024), rate bands (STCG 20/30/applicable, LTCG 12.5/20), IHLA intra-CG waterfall set-off decoded from CG!rows 498-523 | ✅ `capital_gains.py` (9 tests) |
+| CG exemptions (54/54EC/54F), Schedule 115AD(1)(iii), AMT 115JC/JD + credit, DTAA (FSI/PTI/TR), ITR-2/3 JSON builders | ⏳ backlog (§10) | |
 
 Demo: `software/run_demo.py` computes a 14 LPA new-regime return (tax 78,750 + cess 3,150 = 81,900; balance payable 22,776 after TDS 60,000) and emits a **schema-valid** CBDT JSON.
 

@@ -25,7 +25,9 @@ report: [`../docs/EXCEL_REVERSE_ENGINEERING_GAP_REPORT.md`](../docs/EXCEL_REVERS
 | **ITR-4 engine core** (Individual/HUF/Firm slabs, surcharge + marginal relief, cess, 44AD 6%/8% & 3Cr cap, 44ADA 50% & 75L cap, 44AE 1000/MT & 7500/month, 50L eligibility, 87A, 234A/B/F) | ✅ implemented + 10 tests |
 | ITR-4 JSON output against official schema | ✅ **100 % schema-valid** (`itr4_json.py`) |
 | ITR-2/3 CYLA set-off engine (17 income buckets, HP 2L cap, loss-order matrix, regime rules) | ✅ `setoff.py` (8 tests) |
-| ITR-2/3 BFLA + CFL carry-forward, CG schedule (112A 12.5%, 20%, DTAA buckets) | ⏳ next |
+| ITR-2/3 BFLA (brought-forward set-off incl. depreciation) + CFL tracker (8/4-AY expiry, indefinite depreciation/35AD) | ✅ `carry_forward.py` (11 tests) |
+| CG engine: 112A grandfathering (31/01/2018 FMV), unified holding periods (12/24 mo), rate bands, IHLA intra-CG waterfall set-off | ✅ `capital_gains.py` (9 tests) |
+| CG exemption schedules (54/54EC/54F…), Schedule 115AD, AMT (115JC/JD), DTAA relief | ⏳ next |
 | ITR-2 / ITR-3 (CG, BP, P&L, CYLA/CFL, AMT, DTAA, SPI/SI) | ⏳ planned |
 | Web UI (form entry + live validation) | ⏳ planned |
 
