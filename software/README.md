@@ -22,7 +22,8 @@ report: [`../docs/EXCEL_REVERSE_ENGINEERING_GAP_REPORT.md`](../docs/EXCEL_REVERS
 | Schedule 80G (100%/50%, qualifying-limit 10% of adjusted TI, cash > 2k rule) | ✅ `schedules.eligible_donations_80g` |
 | Interest 234C (exact port: 12%/36% tolerances, 15/45/75/100% instalments, 3-3-3-1-1 months) | ✅ `interest.interest_234c` |
 | Entertainment allowance 16(ii) cap (least of actual/5k/1/5 salary) | ✅ `schedules.cap_entertainment_allowance_16ii` |
-| ITR-4 engine (presumptive 44AD/ADA/AE + TaxCalc port) | ⏳ next |
+| **ITR-4 engine core** (Individual/HUF/Firm slabs, surcharge + marginal relief, cess, 44AD 6%/8% & 3Cr cap, 44ADA 50% & 75L cap, 44AE 1000/MT & 7500/month, 50L eligibility, 87A, 234A/B/F) | ✅ implemented + 10 tests |
+| ITR-4 JSON output against `ITR-4_2026_Main_V1.1.json` + 44AD tax split (Tax_44AD) | ⏳ next |
 | ITR-2 / ITR-3 (CG, BP, P&L, CYLA/CFL, AMT, DTAA, SPI/SI) | ⏳ planned |
 | Web UI (form entry + live validation) | ⏳ planned |
 
