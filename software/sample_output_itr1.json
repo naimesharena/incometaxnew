@@ -1,0 +1,226 @@
+{
+ "ITR": {
+  "ITR1": {
+   "Form_ITR1": {
+    "FormName": "ITR-1",
+    "Description": "ITR-1 SAHAJ for Resident individuals - AY 2026-27",
+    "AssessmentYear": "2026",
+    "SchemaVer": "Ver1.0",
+    "FormVer": "Ver1.0"
+   },
+   "FilingStatus": {
+    "ReturnFileSec": 11,
+    "OptOutNewTaxRegime": "N",
+    "SeventhProvisio139": "N",
+    "IncrExpAggAmt2LkTrvFrgnCntryFlg": "N",
+    "IncrExpAggAmt1LkElctrctyPrYrFlg": "N",
+    "clauseiv7provisio139i": "N",
+    "AsseseeRepFlg": "N",
+    "ItrFilingDueDate": "2026-07-31"
+   },
+   "PersonalInfo": {
+    "AssesseeName": {
+     "FirstName": "Ramesh",
+     "MiddleName": "",
+     "SurNameOrOrgName": "Shah"
+    },
+    "PAN": "ABCPS1234K",
+    "AadhaarCardNo": "123456789012",
+    "DOB": "1986-08-14",
+    "EmployerCategory": "PE",
+    "Address": {
+     "ResidenceNo": "B-12",
+     "ResidenceName": "Shanti Residency",
+     "RoadOrStreet": "Adajan Road",
+     "LocalityOrArea": "Adajan",
+     "CityOrTownOrDistrict": "Surat",
+     "StateCode": "11",
+     "CountryCode": "91",
+     "PinCode": 395009,
+     "CountryCodeMobile": 91,
+     "MobileNo": 9876543210,
+     "EmailAddress": "ramesh@example.com"
+    },
+    "SecondaryAdd": "N"
+   },
+   "ITR1_IncomeDeductions": {
+    "GrossSalary": 1400000,
+    "Salary": 1400000,
+    "PerquisitesValue": 0,
+    "ProfitsInSalary": 0,
+    "AllwncExemptUs10": {
+     "AllwncExemptUs10Dtls": [],
+     "TotalAllwncExemptUs10": 0
+    },
+    "NetSalary": 1400000,
+    "DeductionUs16ia": 75000,
+    "EntertainmentAlw16ii": 0,
+    "ProfessionalTaxUs16iii": 0,
+    "DeductionUs16": 75000,
+    "IncomeFromSal": 1325000,
+    "PropertyDetails": [
+     {
+      "HPSNo": 1,
+      "AddressDetailWithZipCode": {
+       "AddrDetail": "-",
+       "CityOrTownOrDistrict": "-",
+       "StateCode": "11",
+       "CountryCode": "91"
+      },
+      "PropertyOwner": "SE",
+      "PropCoOwnedFlg": "NO",
+      "AsseseeShareProperty": 100.0,
+      "ifLetOut": "S",
+      "Rentdetails": {
+       "AnnualLetableValue": 0,
+       "RentNotRealized": 0,
+       "LocalTaxes": 0,
+       "TotalUnrealizedAndTax": 0,
+       "BalanceALV": 0,
+       "AnnualOfPropOwned": 0,
+       "ThirtyPercentOfBalance": 0,
+       "IntOnBorwCap": 0,
+       "TotalDeduct": 0,
+       "ArrearsUnrealizedRentRcvd": 0,
+       "IncomeOfHP": 0
+      }
+     }
+    ],
+    "TotalIncomeChargeableUnHP": 0,
+    "IncomeOthSrc": 0,
+    "OthersInc": {
+     "OthersIncDtlsOthSrc": []
+    },
+    "DeductionUs57iia": 0,
+    "GrossTotIncome": 1325000,
+    "GrossTotIncomeIncLTCG112A": 1325000,
+    "UsrDeductUndChapVIA": {
+     "Section80C": 0,
+     "Section80CCC": 0,
+     "Section80CCDEmployeeOrSE": 0,
+     "Section80CCD1B": 0,
+     "Section80CCDEmployer": 0,
+     "Section80D": 0,
+     "Section80DD": 0,
+     "Section80DDB": 0,
+     "Section80E": 0,
+     "Section80EE": 0,
+     "Section80EEA": 0,
+     "Section80EEB": 0,
+     "Section80G": 0,
+     "Section80GG": 0,
+     "Section80GGA": 0,
+     "Section80GGC": 0,
+     "Section80U": 0,
+     "Section80TTA": 0,
+     "Section80TTB": 0,
+     "AnyOthSec80CCH": 0,
+     "TotalChapVIADeductions": 0
+    },
+    "DeductUndChapVIA": {
+     "Section80C": 0,
+     "Section80CCC": 0,
+     "Section80CCDEmployeeOrSE": 0,
+     "Section80CCD1B": 0,
+     "Section80CCDEmployer": 0,
+     "Section80D": 0,
+     "Section80DD": 0,
+     "Section80DDB": 0,
+     "Section80E": 0,
+     "Section80EE": 0,
+     "Section80EEA": 0,
+     "Section80EEB": 0,
+     "Section80G": 0,
+     "Section80GG": 0,
+     "Section80GGA": 0,
+     "Section80GGC": 0,
+     "Section80U": 0,
+     "Section80TTA": 0,
+     "Section80TTB": 0,
+     "AnyOthSec80CCH": 0,
+     "TotalChapVIADeductions": 0
+    },
+    "TotalIncome": 1325000,
+    "ExemptIncAgriOthUs10": {
+     "ExemptIncAgriOthUs10Total": 0
+    }
+   },
+   "ITR1_TaxComputation": {
+    "TotalTaxPayable": 78750,
+    "Rebate87A": 0,
+    "TaxPayableOnRebate": 78750,
+    "EducationCess": 3150,
+    "GrossTaxLiability": 81900,
+    "Section89": 0,
+    "NetTaxLiability": 81900,
+    "IntrstPay": {
+     "IntrstPayUs234A": 0,
+     "IntrstPayUs234B": 876,
+     "IntrstPayUs234C": 0,
+     "LateFilingFee234F": 0
+    },
+    "TotalIntrstPay": 876,
+    "TotTaxPlusIntrstPay": 82776
+   },
+   "TaxPaid": {
+    "TaxesPaid": {
+     "AdvanceTax": 0,
+     "TDS": 60000,
+     "TCS": 0,
+     "SelfAssessmentTax": 0,
+     "TotalTaxesPaid": 60000
+    },
+    "BalTaxPayable": 22776
+   },
+   "LTCG112A": {
+    "TotSaleCnsdrn": 0,
+    "TotCstAcqisn": 0,
+    "LongCap112A": 0
+   },
+   "Refund": {
+    "RefundDue": 0,
+    "BankAccountDtls": {
+     "AddtnlBankDetails": [
+      {
+       "IFSCCode": "SBIN0001234",
+       "BankAccountNo": "30012345678",
+       "BankName": "State Bank of India",
+       "AccountType": "SB",
+       "UseForRefund": "false"
+      }
+     ]
+    }
+   },
+   "Verification": {
+    "Declaration": {
+     "AssesseeVerName": "Ramesh Shah",
+     "FatherName": "Kantilal Shah",
+     "AssesseeVerPAN": "ABCPS1234K"
+    },
+    "Capacity": "S",
+    "Place": "Adajan"
+   },
+   "TDSonSalaries": {
+    "TotalTDSonSalaries": 60000,
+    "TDSonSalary": [
+     {
+      "EmployerOrDeductorOrCollectDetl": {
+       "TAN": "MUMC12345A",
+       "EmployerOrDeductorOrCollecterName": "Acme Technologies Pvt Ltd"
+      },
+      "IncChrgSal": 0,
+      "TotalTDSSal": 60000
+     }
+    ]
+   },
+   "CreationInfo": {
+    "SWVersionNo": "V1-2",
+    "SWCreatedBy": "SW00000001",
+    "JSONCreatedBy": "SW00000001",
+    "JSONCreationDate": "2026-08-14",
+    "IntermediaryCity": "Surat",
+    "Digest": "T3Pz81rzt9K23qlv+uXwn0CdBTcSTeVaqv4tCclObFw="
+   }
+  }
+ }
+}
