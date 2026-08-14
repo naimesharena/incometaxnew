@@ -42,6 +42,8 @@
   .btn-main:hover { background: #0f4d7c; }
   .btn-alt { background: var(--accent); color: #231a05; }
   .btn-alt:hover { filter: brightness(.95); }
+  .btn-ghost { background: #e6edf3; color: var(--navy); border: 1px solid #c9d6e2; }
+  .btn-ghost:hover { background: #d8e3ec; }
   .result-row { display: flex; justify-content: space-between; padding: 7px 2px;
                 border-bottom: 1px dashed #e2eaf0; font-size: .88rem; }
   .result-row b { font-variant-numeric: tabular-nums; }
@@ -73,7 +75,17 @@
       <div class="btns">
         <button type="button" class="btn-main" onclick="compute()">Compute Tax</button>
         <button type="button" class="btn-alt" onclick="downloadJson()">Generate CBDT JSON</button>
+        <button type="button" class="btn-ghost" onclick="saveDraft()">Save Draft</button>
+        <button type="button" class="btn-ghost" onclick="loadDraft()">Load Draft</button>
+        <button type="button" class="btn-ghost" onclick="togglePrefill()">Apply Govt Prefill</button>
       </div>
+      <div id="prefillbox" style="display:none;margin-top:14px;">
+        <label>Paste the government prefill JSON (ITR envelope):</label>
+        <textarea id="prefilltext" rows="6" style="width:100%;border:1px solid #cdd8e2;border-radius:6px;font-family:monospace;font-size:.75rem;"></textarea>
+        <div class="btns"><button type="button" class="btn-main" onclick="applyPrefill()">Apply Prefill</button></div>
+        <div id="prefillnotes" style="margin-top:8px;font-size:.8rem;color:var(--muted);"></div>
+      </div>
+      <div id="draftstatus" style="margin-top:10px;font-size:.82rem;color:var(--muted);"></div>
     </div>
   </div>
   <div class="side">
@@ -200,6 +212,61 @@ async function downloadJson() {
   a.href = URL.createObjectURL(blob);
   a.download = `${current.replace("-", "")}_AY2026-27.json`;
   a.click();
+}
+
+function togglePrefill() {
+  const b = document.getElementById("prefillbox");
+  b.style.display = b.style.display === "none" ? "block" : "none";
+}
+
+function fillFields(inputs) {
+  SPECS[current].fields.forEach(f => {
+    if (f.key in inputs) {
+      const el = document.getElementById(f.key);
+      if (!el) return;
+      if (f.type === "checkbox") el.checked = !!inputs[f.key];
+      else el.value = inputs[f.key];
+    }
+  });
+}
+
+async function saveDraft() {
+  const res = await fetch(`/api/draft/save/${current}`, {
+    method: "POST", headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({input: collect()})
+  });
+  const d = await res.json();
+  document.getElementById("draftstatus").textContent =
+    d.saved ? `✔ Draft saved (${d.file})` : "Draft save failed";
+}
+
+async function loadDraft() {
+  const res = await fetch(`/api/draft/load/${current}`, {
+    method: "POST", headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({input: {pan: document.getElementById("pan")?.value || ""}})
+  });
+  const st = document.getElementById("draftstatus");
+  if (!res.ok) { st.textContent = "No draft found for this PAN / form."; return; }
+  const d = await res.json();
+  fillFields(d.input || {});
+  st.textContent = `✔ Draft loaded (${d.file || ""})`;
+}
+
+async function applyPrefill() {
+  const st = document.getElementById("draftstatus");
+  let data;
+  try { data = JSON.parse(document.getElementById("prefilltext").value); }
+  catch (e) { st.textContent = "Invalid JSON pasted."; return; }
+  const res = await fetch("/api/prefill", {
+    method: "POST", headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({input: data})
+  });
+  const out = await res.json();
+  fillFields(out.inputs || {});
+  document.getElementById("prefillnotes").innerHTML =
+    `<b>Prefilled:</b> ${(out.prefilled_sections || []).join(", ") || "nothing"}<br>` +
+    (out.notes || []).map(n => "• " + n).join("<br>");
+  st.textContent = "✔ Government prefill applied - review the fields, then Compute.";
 }
 
 init();

@@ -35,7 +35,10 @@ report: [`../docs/EXCEL_REVERSE_ENGINEERING_GAP_REPORT.md`](../docs/EXCEL_REVERS
 | **ITR-3 business engine**: P&L adjustments, DPM depreciation blocks (180-day 50% rule), speculation/specified-business isolation, presumptive reuse | ✅ `business.py` |
 | **ITR-3 model + JSON builder** (PARTA_BS/PL, ITR3ScheduleBP full adjustment chain, audit flags, ProfBusGain) | ✅ 100 % schema-valid (`itr3.py` + `itr3_json.py`) |
 | **Web application**: FastAPI + single-page UI — dynamic forms for all 4 ITRs, live computation (Part-D breakdown, 234B/C/F), validation messages, one-click **schema-valid CBDT JSON download** | ✅ `web/` (run `python3 web/app.py`, port 8000) |
-| Schedule 115AD(1)(iii) detail, e-filing portal integration (prefill APIs) | ⏳ next |
+| Schedule 115AD(1)(iii) proviso (FPI equity: grandfathering, pre/post 23-Jul-2024 buckets, 112A-exempt + 12.5% special rate) | ✅ `schedule_115ad.py` |
+| Relief u/s 89 (Form 10E algorithm), refund interest 244A (0.5%/mo), updated-return 139(8A) additional tax (25%/50% decoded from Part B ATI) | ✅ `relief89.py`, `interest.py` |
+| Draft save/load + **government prefill application** (ITR-envelope import per PreFillJson.bas) with UI buttons | ✅ `storage.py` + API + UI |
+| Grid UIs for 80G donations / CG asset lists | ⏳ next |
 | ITR-2 / ITR-3 (CG, BP, P&L, CYLA/CFL, AMT, DTAA, SPI/SI) | ⏳ planned |
 | Web UI (form entry + live validation) | ⏳ planned |
 

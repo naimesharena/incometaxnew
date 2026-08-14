@@ -278,7 +278,10 @@ Development has started on the confirmed extraction. Status of the §10 backlog:
 | ITR-3 business engine: P&L net profit + inadmissible add-backs + IT-rules depreciation (block-wise, 15%/full/half for <180-day additions) [PARTA_PL + DPM sheet rules], speculation & 35AD tracks isolated per CYLA/BFLA rules | ✅ `business.py` (4 tests) |
 | ITR-3 model + JSON builder (PartA_GEN2 audit flags, PARTA_BS/PL, ITR3ScheduleBP adjustment chain incl. DepreciationAllowITAct32/NetPLAftAdjBusOthThanSpec/NetPLBusOthThanSpec7A7B7C, ProfBusGain, ITR-3 due-date enum 31/08/2026) | ✅ **100 % schema-valid** (4 tests) — **all 4 forms complete, 116 tests** |
 | Web application: FastAPI + single-page filing UI for all 4 forms — spec-driven dynamic fields, live tax computation with full breakdown, Category-A validation messages, CBDT JSON generation with in-request schema validation (all 4 forms verified 0 errors through the API) | ✅ `software/web/` |
-| Schedule 115AD(1)(iii) proviso detail, e-filing portal prefill integration, draft save/load | ⏳ backlog (§10) | |
+| Schedule 115AD(1)(iii) proviso (FPI/non-resident equity): col 6/7/14 formulas, 31/01/2018 grandfathering, pre/post 23/07/2024 transfer buckets, 112A 1.25L exempt + 12.5% rate | ✅ `schedule_115ad.py` (2 tests) |
+| Relief u/s 89 Form 10E algorithm; refund interest 244A; 139(8A) updated-return additional tax 25%/50% [Part B ATI U_AddtnlIncTax] | ✅ `relief89.py` + `interest.py` (6 tests) |
+| Draft persistence (save/load/list by PAN) + government prefill application importing the ITR-envelope sections (PersonalInfo/TDS/TCS/TaxPayments/Salary/OS) per PreFillJson.bas, wired to API + UI | ✅ `storage.py` + `/api/drafts`, `/api/prefill` (3 tests) — 126 tests total |
+| Grid UIs for 80G donations / CG asset lists; live portal API hookup | ⏳ backlog (§10) | |
 
 Demo: `software/run_demo.py` computes a 14 LPA new-regime return (tax 78,750 + cess 3,150 = 81,900; balance payable 22,776 after TDS 60,000) and emits a **schema-valid** CBDT JSON.
 

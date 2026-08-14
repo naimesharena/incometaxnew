@@ -20,6 +20,8 @@ from pydantic import BaseModel
 from typing import Dict, Any
 
 from web.builder import BUILDERS, format_result
+from itr_filing.storage import (save_draft, load_draft, list_drafts,
+                                apply_prefill)
 from itr_filing import constants as C
 from itr_filing.json_builder import build_itr1_json, validate_against_schema
 from itr_filing.itr2_json import build_itr2_json
@@ -265,6 +267,33 @@ def api_json(form: str, payload: Payload):
     errs = validate_against_schema(out, SCHEMAS[form])
     return JSONResponse({"schema_valid": errs == [], "schema_errors": errs[:10],
                          "payload": out})
+
+
+@app.get("/api/drafts")
+def api_drafts_list():
+    return {"drafts": list_drafts()}
+
+
+@app.post("/api/draft/save/{form}")
+def api_draft_save(form: str, payload: Payload):
+    pan = str(payload.input.get("pan", "")).upper() or "UNKNOWN"
+    path = save_draft(form, pan, payload.input)
+    return {"saved": True, "file": os.path.basename(path), "form": form, "pan": pan}
+
+
+@app.post("/api/draft/load/{form}")
+def api_draft_load(form: str, payload: Payload):
+    pan = str(payload.input.get("pan", "")).upper() or "UNKNOWN"
+    d = load_draft(form, pan)
+    if not d:
+        raise HTTPException(404, f"No draft for {form} / {pan}")
+    return d
+
+
+@app.post("/api/prefill")
+def api_prefill(payload: Payload):
+    """Apply a government prefill JSON (ITR envelope) -> form inputs."""
+    return apply_prefill(payload.input)
 
 
 @app.get("/")

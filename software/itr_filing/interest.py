@@ -156,3 +156,18 @@ def interest_234c(q_taxes: list, rebate_87a: float, instalments: list,
             bal = (int(bal) // 100) * 100
         total += max(0.0, bal * 0.01)
     return excel_round(total)
+
+
+def refund_interest_244a(refund_amount: float, months: int) -> int:
+    """Interest u/s 244A on refunds: 0.5% per month (simple)."""
+    if refund_amount <= 0 or months <= 0:
+        return 0
+    return excel_round(refund_amount * 0.005 * months)
+
+
+def additional_tax_updated_return_139_8a(tax_liability: float, update_year: int) -> int:
+    """Additional income-tax on updated income u/s 139(8A)
+    [ITR-2 'Part B ATI' U_AddtnlIncTax]: 25% if updated within 12 months
+    from the end of the AY (UR_New=1), 50% in the next 12 months (UR_New=2)."""
+    rate = {1: 0.25, 2: 0.50}.get(update_year, 0)
+    return excel_round(max(0.0, tax_liability) * rate)

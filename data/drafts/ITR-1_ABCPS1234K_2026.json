@@ -1,0 +1,10 @@
+{
+ "form": "ITR-1",
+ "pan": "ABCPS1234K",
+ "assessment_year": "2026",
+ "input": {
+  "pan": "ABCPS1234K",
+  "gross_salary": 1400000,
+  "first_name": "Ramesh"
+ }
+}
