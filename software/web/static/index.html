@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ITR Filing Software — AY 2026-27</title>
+<style>
+  :root {
+    --navy: #0d2c4f; --blue: #155e95; --accent: #f2a33c;
+    --bg: #f4f7fa; --card: #ffffff; --err: #b3261e; --ok: #1e7b34;
+    --muted: #5c6b7a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Segoe UI", system-ui, sans-serif; background: var(--bg); color: #1c2733; }
+  header { background: linear-gradient(120deg, var(--navy), var(--blue));
+           color: #fff; padding: 22px 28px; }
+  header h1 { font-size: 1.35rem; font-weight: 600; }
+  header p { opacity: .85; font-size: .9rem; margin-top: 4px; }
+  .wrap { max-width: 1200px; margin: 24px auto; padding: 0 20px;
+          display: grid; grid-template-columns: 1fr 380px; gap: 20px; }
+  @media (max-width: 980px) { .wrap { grid-template-columns: 1fr; } }
+  .card { background: var(--card); border-radius: 10px; padding: 20px;
+          box-shadow: 0 1px 4px rgba(13,44,79,.08); margin-bottom: 18px; }
+  .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+  .tab { padding: 9px 16px; border-radius: 8px 8px 0 0; border: 1px solid #d5dee6;
+         background: #e9eff4; cursor: pointer; font-weight: 600; font-size: .9rem; }
+  .tab.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+  .formtitle { font-size: .85rem; color: var(--muted); margin-bottom: 14px; }
+  h3.sec { margin: 18px 0 10px; font-size: .95rem; color: var(--blue);
+           border-bottom: 2px solid #e3ecf3; padding-bottom: 4px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; }
+  label { font-size: .78rem; color: var(--muted); display: block; margin-bottom: 3px; }
+  input, select { width: 100%; padding: 8px 9px; border: 1px solid #cdd8e2;
+                  border-radius: 6px; font-size: .88rem; background: #fff; }
+  input:focus, select:focus { outline: 2px solid #9ec7e8; border-color: var(--blue); }
+  .chk { display: flex; align-items: center; gap: 8px; padding-top: 20px; }
+  .chk input { width: auto; }
+  .btns { margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; }
+  button { border: none; border-radius: 7px; padding: 11px 20px; font-size: .92rem;
+           font-weight: 600; cursor: pointer; }
+  .btn-main { background: var(--blue); color: #fff; }
+  .btn-main:hover { background: #0f4d7c; }
+  .btn-alt { background: var(--accent); color: #231a05; }
+  .btn-alt:hover { filter: brightness(.95); }
+  .result-row { display: flex; justify-content: space-between; padding: 7px 2px;
+                border-bottom: 1px dashed #e2eaf0; font-size: .88rem; }
+  .result-row b { font-variant-numeric: tabular-nums; }
+  .result-row.total { font-weight: 700; color: var(--navy); border-top: 2px solid var(--navy); }
+  .result-row.refund b { color: var(--ok); }
+  .result-row.payable b { color: var(--err); }
+  .errbox { background: #fdecea; border-left: 4px solid var(--err); padding: 10px 12px;
+            border-radius: 6px; font-size: .82rem; margin-bottom: 8px; }
+  .okbox { background: #e8f5ec; border-left: 4px solid var(--ok); padding: 10px 12px;
+           border-radius: 6px; font-size: .85rem; }
+  .side { position: sticky; top: 16px; align-self: start; }
+  .schema-badge { display: inline-block; margin-top: 8px; font-size: .78rem;
+                  padding: 4px 10px; border-radius: 12px; background: #e8f5ec; color: var(--ok);
+                  font-weight: 600; }
+  footer { text-align: center; color: var(--muted); font-size: .78rem; padding: 20px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Income Tax Return Filing Software — AY 2026-27</h1>
+  <p>Faithful reimplementation of the official CBDT Excel utilities · ITR-1 · ITR-2 · ITR-3 · ITR-4</p>
+</header>
+<div class="wrap">
+  <div>
+    <div class="tabs" id="tabs"></div>
+    <div class="card">
+      <div class="formtitle" id="formtitle"></div>
+      <form id="dynform" autocomplete="off"></form>
+      <div class="btns">
+        <button type="button" class="btn-main" onclick="compute()">Compute Tax</button>
+        <button type="button" class="btn-alt" onclick="downloadJson()">Generate CBDT JSON</button>
+      </div>
+    </div>
+  </div>
+  <div class="side">
+    <div class="card">
+      <h3 style="color:var(--navy);margin-bottom:10px;">Computation</h3>
+      <div id="errors"></div>
+      <div id="result"><div style="color:var(--muted);font-size:.85rem;">Fill the form and press <b>Compute Tax</b>.</div></div>
+      <div id="schema"></div>
+    </div>
+  </div>
+</div>
+<footer>Engine: slab rates, 87A rebate with marginal relief, surcharge, cess, Chapter VI-A caps, CYLA/BFLA/CFL, capital gains waterfall, AMT — all ported from the official AY 2026-27 utilities.</footer>
+<script>
+let SPECS = null, current = "ITR-1";
+const fmt = new Intl.NumberFormat("en-IN");
+
+async function init() {
+  SPECS = (await (await fetch("/api/constants")).json()).forms;
+  const tabs = document.getElementById("tabs");
+  Object.keys(SPECS).forEach(f => {
+    const t = document.createElement("div");
+    t.className = "tab" + (f === current ? " active" : "");
+    t.textContent = f;
+    t.onclick = () => selectForm(f);
+    tabs.appendChild(t);
+  });
+  render();
+}
+
+function selectForm(f) {
+  current = f;
+  document.querySelectorAll(".tab").forEach(t =>
+    t.classList.toggle("active", t.textContent === f));
+  render();
+  document.getElementById("result").innerHTML =
+    '<div style="color:var(--muted);font-size:.85rem;">Fill the form and press <b>Compute Tax</b>.</div>';
+  document.getElementById("errors").innerHTML = "";
+  document.getElementById("schema").innerHTML = "";
+}
+
+function render() {
+  const spec = SPECS[current];
+  document.getElementById("formtitle").textContent = spec.title;
+  const form = document.getElementById("dynform");
+  form.innerHTML = "";
+  const sections = {};
+  spec.fields.forEach(f => (sections[f.section] ||= []).push(f));
+  for (const [sec, fields] of Object.entries(sections)) {
+    const h = document.createElement("h3");
+    h.className = "sec"; h.textContent = sec;
+    form.appendChild(h);
+    const g = document.createElement("div");
+    g.className = "grid";
+    fields.forEach(f => {
+      const cell = document.createElement("div");
+      if (f.type === "checkbox") {
+        cell.className = "chk";
+        cell.innerHTML = `<input type="checkbox" id="${f.key}"><label for="${f.key}" style="margin:0">${f.label}</label>`;
+      } else {
+        let input;
+        if (f.type === "select") {
+          input = `<select id="${f.key}">` + f.options.map(o => {
+            const v = typeof o === "string" ? o : o.value;
+            const l = typeof o === "string" ? o : o.label;
+            return `<option value="${v}">${l}</option>`;
+          }).join("") + "</select>";
+        } else {
+          input = `<input type="${f.type}" id="${f.key}" ${f.type === "number" ? 'step="any" placeholder="0"' : `placeholder="${f.placeholder || ""}"`}>`;
+        }
+        cell.innerHTML = `<label for="${f.key}">${f.label}</label>${input}`;
+      }
+      g.appendChild(cell);
+    });
+    form.appendChild(g);
+  }
+}
+
+function collect() {
+  const out = {};
+  SPECS[current].fields.forEach(f => {
+    const el = document.getElementById(f.key);
+    if (!el) return;
+    if (f.type === "checkbox") out[f.key] = el.checked;
+    else if (f.type === "number") out[f.key] = el.value === "" ? 0 : Number(el.value);
+    else out[f.key] = el.value;
+  });
+  return out;
+}
+
+async function compute() {
+  const res = await fetch(`/api/compute/${current}`, {
+    method: "POST", headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({input: collect()})
+  });
+  const data = await res.json();
+  const ebox = document.getElementById("errors");
+  ebox.innerHTML = (data.errors || []).map(e => `<div class="errbox">${e}</div>`).join("");
+  const r = document.getElementById("result");
+  r.innerHTML = "";
+  for (const [k, v] of Object.entries(data.result)) {
+    const row = document.createElement("div");
+    const num = Number(v);
+    let cls = "result-row";
+    if (k.includes("Total Liability") || k === "Total Income") cls += " total";
+    if (k.includes("Refund")) cls += num >= 0 ? " refund" : " payable";
+    row.className = cls;
+    row.innerHTML = `<span>${k}</span><b>${num >= 0 ? "₹ " + fmt.format(num) : "₹ (" + fmt.format(-num) + ")"}</b>`;
+    r.appendChild(row);
+  }
+}
+
+async function downloadJson() {
+  const res = await fetch(`/api/json/${current}`, {
+    method: "POST", headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({input: collect()})
+  });
+  const data = await res.json();
+  const badge = document.getElementById("schema");
+  badge.innerHTML = data.schema_valid
+    ? '<span class="schema-badge">✔ 100% valid against official CBDT schema</span>'
+    : `<div class="errbox">Schema errors: ${data.schema_errors.join("; ")}</div>`;
+  const blob = new Blob([JSON.stringify(data.payload, null, 1)], {type: "application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `${current.replace("-", "")}_AY2026-27.json`;
+  a.click();
+}
+
+init();
+</script>
+</body>
+</html>
