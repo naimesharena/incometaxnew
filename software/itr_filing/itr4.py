@@ -19,6 +19,9 @@ from .tax_engine import excel_round, tax_new_regime, calculate_age
 from .house_property import HouseProperty, total_hp_income, hp_for_gti
 from . import chapter_via as via
 from .interest import interest_234a, interest_234b, interest_234c, fee_234f
+from .itr1 import PersonalInfo, BankAccount, TaxesPaid
+
+ITR4_DUE_DATE = date(2026, 8, 31)   # [ITR-4 schema] ItrFilingDueDate = 2026-08-31
 
 ENTITY_INDIVIDUAL = "I"
 ENTITY_HUF = "H"
@@ -127,6 +130,10 @@ class ITR4Return:
     entity: str = ENTITY_INDIVIDUAL
     dob: Optional[date] = None
     regime: int = C.REGIME_NEW
+    personal: PersonalInfo = field(default_factory=PersonalInfo)
+    bank: BankAccount = field(default_factory=BankAccount)
+    taxes_paid: TaxesPaid = field(default_factory=TaxesPaid)
+    chapter_via_breakup: dict = field(default_factory=dict)  # Section80C.. user inputs
     salary: float = 0
     house_properties: List[HouseProperty] = field(default_factory=list)
     other_sources: float = 0
@@ -140,7 +147,7 @@ class ITR4Return:
     advance_tax: float = 0
     instalments: List[float] = field(default_factory=list)
     filing_sec_code: int = 11
-    due_date: date = C.ITR_FILING_DUE_DATE
+    due_date: date = ITR4_DUE_DATE
     verification_date: Optional[date] = None
 
     @property
@@ -268,11 +275,14 @@ class ITR4Return:
     def fee_234f(self) -> int:
         return fee_234f(self.total_income(), self.filing_sec_code not in (11,))
 
+    def total_taxes_paid(self) -> float:
+        return (self.tds + self.tcs + self.advance_tax
+                + self.taxes_paid.self_assessment_tax)
+
     def refund_or_payable(self) -> float:
-        total_paid = self.tds + self.tcs + self.advance_tax
         liability = (self.net_tax_liability() + self.interest_234a()
                      + self.interest_234b() + self.fee_234f())
-        return total_paid - liability
+        return self.total_taxes_paid() - liability
 
     # ------------------------------------------------------------------
     def validation_errors(self) -> list:
