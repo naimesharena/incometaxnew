@@ -270,7 +270,11 @@ Development has started on the confirmed extraction. Status of the §10 backlog:
 | ITR-2/3 CYLA current-year set-off engine: 17 income buckets incl. AY 26-27 CG rates (STCG 15/20/30, LTCG 10/12.5/20/DTAA), HP loss 2L cap + set-off order, BP/OS loss orders, new-regime HP-loss rule | ✅ `software/itr_filing/setoff.py` (8 tests) |
 | ITR-2/3 BFLA brought-forward set-off (HP/BP/speculation/specified/STCG/LTCG/racehorse orders, unabsorbed depreciation any-head-except-salary) + CFL tracker (8-AY HP/BP/CG, 4-AY speculation/race-horse, indefinite depreciation & 35AD) decoded from CFL grid rows 6-25 | ✅ `carry_forward.py` (11 tests) |
 | CG engine: 112A grandfathering MAX(cost, MIN(FMV 31/01/2018, sale)), unified holding periods (12 mo securities / 24 mo other, post 23/07/2024), rate bands (STCG 20/30/applicable, LTCG 12.5/20), IHLA intra-CG waterfall set-off decoded from CG!rows 498-523 | ✅ `capital_gains.py` (9 tests) |
-| CG exemptions (54/54EC/54F), Schedule 115AD(1)(iii), AMT 115JC/JD + credit, DTAA (FSI/PTI/TR), ITR-2/3 JSON builders | ⏳ backlog (§10) | |
+| CG exemptions 54 (two-house Rs 2Cr option), 54EC (Rs 50L cap [VBA 31622]), 54F (pro-rata, Rs 10Cr cap [VBA 31637]) | ✅ `cg_exemptions.py` |
+| AMT 115JC: adjusted TI = TI + VI-A(excl QQB/RRB) + 10AA + 35AD; 18.5% + surcharge only if adj TI > 20L & VI-A claimed; N/A new regime. AMTC 115JD: 15-AY credit grid, zeroed in new regime | ✅ `amt.py` (7 tests) |
+| DTAA relief u/s 90 (MIN foreign tax vs Indian incremental tax) & u/s 91 (lower-rate method) | ✅ `dtaa.py` (2 tests) |
+| Part B-TI/TTI capstone: special-rate band taxes (111A 20%, 112A 12.5% with 1.25L exempt, 30%/10% legacy bands), 87A tested on TI excl. 112A [AO177 semantics], surcharge new capped 25% vs old 37%, cess, MAX(regular, AMT) rule | ✅ `ti_tti.py` (7 tests) — 105 tests total |
+| Schedule 115AD(1)(iii) proviso, ITR-2/3 JSON builders, web UI | ⏳ backlog (§10) | |
 
 Demo: `software/run_demo.py` computes a 14 LPA new-regime return (tax 78,750 + cess 3,150 = 81,900; balance payable 22,776 after TDS 60,000) and emits a **schema-valid** CBDT JSON.
 

@@ -27,7 +27,11 @@ report: [`../docs/EXCEL_REVERSE_ENGINEERING_GAP_REPORT.md`](../docs/EXCEL_REVERS
 | ITR-2/3 CYLA set-off engine (17 income buckets, HP 2L cap, loss-order matrix, regime rules) | ✅ `setoff.py` (8 tests) |
 | ITR-2/3 BFLA (brought-forward set-off incl. depreciation) + CFL tracker (8/4-AY expiry, indefinite depreciation/35AD) | ✅ `carry_forward.py` (11 tests) |
 | CG engine: 112A grandfathering (31/01/2018 FMV), unified holding periods (12/24 mo), rate bands, IHLA intra-CG waterfall set-off | ✅ `capital_gains.py` (9 tests) |
-| CG exemption schedules (54/54EC/54F…), Schedule 115AD, AMT (115JC/JD), DTAA relief | ⏳ next |
+| CG exemptions: 54 (2-house 2Cr rule), 54EC (50L cap), 54F (pro-rata, 10Cr cap) | ✅ `cg_exemptions.py` |
+| AMT 115JC (18.5%, 20L threshold, N/A in new regime) + AMTC 115JD 15-AY credit grid | ✅ `amt.py` |
+| DTAA relief u/s 90/91 (lower-of-two / lower-rate methods) | ✅ `dtaa.py` |
+| Part B-TI/TTI capstone: special-rate band taxes (20/30/12.5/10%), 87A on TI excl. 112A, regime-aware surcharge (new capped 25%, old 37%), cess, MAX(regular, AMT) | ✅ `ti_tti.py` |
+| ITR-2/3 JSON builders, Schedule 115AD(1)(iii), web UI | ⏳ next |
 | ITR-2 / ITR-3 (CG, BP, P&L, CYLA/CFL, AMT, DTAA, SPI/SI) | ⏳ planned |
 | Web UI (form entry + live validation) | ⏳ planned |
 
