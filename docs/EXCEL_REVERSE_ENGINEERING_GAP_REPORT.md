@@ -281,7 +281,8 @@ Development has started on the confirmed extraction. Status of the §10 backlog:
 | Schedule 115AD(1)(iii) proviso (FPI/non-resident equity): col 6/7/14 formulas, 31/01/2018 grandfathering, pre/post 23/07/2024 transfer buckets, 112A 1.25L exempt + 12.5% rate | ✅ `schedule_115ad.py` (2 tests) |
 | Relief u/s 89 Form 10E algorithm; refund interest 244A; 139(8A) updated-return additional tax 25%/50% [Part B ATI U_AddtnlIncTax] | ✅ `relief89.py` + `interest.py` (6 tests) |
 | Draft persistence (save/load/list by PAN) + government prefill application importing the ITR-envelope sections (PersonalInfo/TDS/TCS/TaxPayments/Salary/OS) per PreFillJson.bas, wired to API + UI | ✅ `storage.py` + `/api/drafts`, `/api/prefill` (3 tests) — 126 tests total |
-| Grid UIs for 80G donations / CG asset lists; live portal API hookup | ⏳ backlog (§10) | |
+| Grid UIs: 80G donation grid (percent/qualifying-limit/cash-mode columns enforcing the 80G sheet rules) and CG asset grid (asset class, STT flag, acquisition/transfer dates, 31/01/2018 FMV grandfathering feeding the band waterfall); draft save/load round-trips grids; verified through the live API (ITR-1 VI-A = 125000; ITR-2 special tax 29375) | ✅ UI + `web/builder.py` + 4 tests — 130 total |
+| Live e-filing portal API hookup (requires portal credentials/sandbox) | ⏳ backlog (§10) | |
 
 Demo: `software/run_demo.py` computes a 14 LPA new-regime return (tax 78,750 + cess 3,150 = 81,900; balance payable 22,776 after TDS 60,000) and emits a **schema-valid** CBDT JSON.
 

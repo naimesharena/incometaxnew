@@ -483,9 +483,9 @@ class ITR1Return:
 
     def _amount_80g(self, comps: dict = None) -> float:
         """80G eligible amount. The qualifying limit uses adjusted TI that
-        EXCLUDES 80G itself [80G!C33], so we resolve with a single pass:
-        TI computed from all other components (utility's circular ref is
-        handled by Excel iteration; one pass is the fixed point here)."""
+        EXCLUDES 80G itself [80G!C33]; TI here is computed from all OTHER
+        components in one pass (Excel resolves the circular ref by iteration;
+        one pass is the fixed point)."""
         cv = self.chapter_via
         if cv.donations_80g:
             from .schedules import qualifying_limit_80g, eligible_donations_80g
@@ -495,9 +495,10 @@ class ITR1Return:
                                       "80CCG", "80D", "80DD", "80DDB", "80E", "80EE"))
             via_after = sum(v for k, v in comps.items()
                             if k in ("80GGA", "80GGC", "80TTA", "80TTB", "80U", "80CCH"))
-            other_via = via_before + via_after + comps.get("80GG", 0) + \
-                comps.get("80QQB", 0) + comps.get("80RRB", 0)
-            ti_pass = via.round_total_income(self.gti() - other_via)
+            via_others = sum(v for k, v in comps.items() if k != "80G")
+            capped_others = min(float(cv.user_total or 0), via_others,
+                                max(0.0, self.gti()))
+            ti_pass = via.round_total_income(self.gti() - capped_others)
             ql = qualifying_limit_80g(ti_pass, via_before, via_after,
                                       comps.get("80GG", 0), comps.get("80EEA", 0),
                                       comps.get("80EEB", 0))

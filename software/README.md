@@ -38,7 +38,7 @@ report: [`../docs/EXCEL_REVERSE_ENGINEERING_GAP_REPORT.md`](../docs/EXCEL_REVERS
 | Schedule 115AD(1)(iii) proviso (FPI equity: grandfathering, pre/post 23-Jul-2024 buckets, 112A-exempt + 12.5% special rate) | ✅ `schedule_115ad.py` |
 | Relief u/s 89 (Form 10E algorithm), refund interest 244A (0.5%/mo), updated-return 139(8A) additional tax (25%/50% decoded from Part B ATI) | ✅ `relief89.py`, `interest.py` |
 | Draft save/load + **government prefill application** (ITR-envelope import per PreFillJson.bas) with UI buttons | ✅ `storage.py` + API + UI |
-| Grid UIs for 80G donations / CG asset lists | ⏳ next |
+| Grid UIs: **80G donations** (100%/50%, qualifying-limit, cash > 2k rule) and **CG asset list** (class, STT flag, dates, FMV 31/01/2018 grandfathering) with add/remove rows, draft round-trip and live computation | ✅ UI + builder + 4 tests (130 total) |
 | ITR-2 / ITR-3 (CG, BP, P&L, CYLA/CFL, AMT, DTAA, SPI/SI) | ⏳ planned |
 | Web UI (form entry + live validation) | ⏳ planned |
 

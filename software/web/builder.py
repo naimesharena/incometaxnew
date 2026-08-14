@@ -120,6 +120,15 @@ def build_itr1(i: dict) -> ITR1Return:
         cv.schedule_80d = Schedule80D(selection=int(i.get("s80d_selection") or 1),
                                       premium_paid=_f(i.get("s80d_premium")),
                                       taxpayer_age=r.personal.age)
+    dons = i.get("donations_80g") or []
+    from itr_filing.schedules import Donation80G
+    cv.donations_80g = [
+        Donation80G(amount=_f(d.get("amount")),
+                    percent=int(d.get("percent") or 100),
+                    with_qualifying_limit=str(d.get("qualifying", "no")).lower().startswith("y"),
+                    cash=str(d.get("mode", "")).lower().startswith("cash"))
+        for d in dons if _f(d.get("amount")) > 0
+    ]
     cv.disability_80dd = int(i.get("s80dd_type") or 0)
     cv.severity_80u = int(i.get("s80u_type") or 0)
     cv.selection_80ddb = int(i.get("s80ddb_selection") or 0)
@@ -167,6 +176,17 @@ def build_itr2(i: dict) -> ITR2Return:
                                             gross_annual_value=_f(i.get("hp_rent")),
                                             interest_24b=_f(i.get("hp_interest")))]
     r.other_sources_normal = _f(i.get("other_income"))
+    for row in (i.get("cg_assets") or []):
+        if not _f(row.get("sale")):
+            continue
+        r.cg_assets.append(CapitalAsset(
+            asset_class=row.get("asset_class", "other"),
+            listed_stt_paid=str(row.get("listed_stt", "no")).lower().startswith("y"),
+            acquisition_date=_d(row.get("acq_date")) or date(2024, 1, 1),
+            transfer_date=_d(row.get("transfer_date")) or date(2026, 3, 1),
+            sale_consideration=_f(row.get("sale")),
+            cost_of_acquisition=_f(row.get("cost")),
+            fmv_31jan2018=_f(row.get("fmv"))))
     if _f(i.get("stcg_amount")):
         r.cg_assets.append(CapitalAsset(
             asset_class="securities", listed_stt_paid=True,

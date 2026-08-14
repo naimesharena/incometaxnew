@@ -33,6 +33,10 @@
   input, select { width: 100%; padding: 8px 9px; border: 1px solid #cdd8e2;
                   border-radius: 6px; font-size: .88rem; background: #fff; }
   input:focus, select:focus { outline: 2px solid #9ec7e8; border-color: var(--blue); }
+  .grdtbl { width: 100%; border-collapse: collapse; margin-top: 4px; }
+  .grdtbl th { font-size: .72rem; color: var(--muted); text-align: left; padding: 3px 4px; font-weight: 600; }
+  .grdtbl td { padding: 2px; }
+  .grdtbl input, .grdtbl select { font-size: .8rem; padding: 5px 6px; }
   .chk { display: flex; align-items: center; gap: 8px; padding-top: 20px; }
   .chk input { width: auto; }
   .btns { margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; }
@@ -100,7 +104,37 @@
 <footer>Engine: slab rates, 87A rebate with marginal relief, surcharge, cess, Chapter VI-A caps, CYLA/BFLA/CFL, capital gains waterfall, AMT — all ported from the official AY 2026-27 utilities.</footer>
 <script>
 let SPECS = null, current = "ITR-1";
+const GRID_DEFS = {};
 const fmt = new Intl.NumberFormat("en-IN");
+
+function addGridRow(key, data) {
+  const def = GRID_DEFS[key];
+  const tbody = document.querySelector(`table[data-grid="${key}"] tbody`);
+  const tr = document.createElement("tr");
+  tr.dataset.row = "1";
+  def.columns.forEach(c => {
+    const td = document.createElement("td");
+    let input;
+    if (c.type === "select") {
+      input = `<select data-col="${c.key}">` + c.options.map(o =>
+        `<option value="${o.value}">${o.label}</option>`).join("") + "</select>";
+    } else {
+      input = `<input type="${c.type}" data-col="${c.key}" ${c.type === "number" ? 'step="any"' : ""}>`;
+    }
+    td.innerHTML = input;
+    tr.appendChild(td);
+  });
+  const tdx = document.createElement("td");
+  tdx.innerHTML = `<button type="button" class="btn-ghost" style="padding:2px 8px;" onclick="this.closest('tr').remove()">×</button>`;
+  tr.appendChild(tdx);
+  tbody.appendChild(tr);
+  if (data) {
+    def.columns.forEach(c => {
+      const el = tr.querySelector(`[data-col="${c.key}"]`);
+      if (el && data[c.key] !== undefined) el.value = data[c.key];
+    });
+  }
+}
 
 async function init() {
   SPECS = (await (await fetch("/api/constants")).json()).forms;
@@ -141,6 +175,20 @@ function render() {
     g.className = "grid";
     fields.forEach(f => {
       const cell = document.createElement("div");
+      if (f.type === "grid") {
+        GRID_DEFS[f.key] = f;
+        const wrap = document.createElement("div");
+        wrap.style.gridColumn = "1 / -1";
+        wrap.innerHTML = `<label>${f.label}</label>
+          <table class="grdtbl" data-grid="${f.key}">
+            <thead><tr>${f.columns.map(c => `<th>${c.label}</th>`).join("")}<th></th></tr></thead>
+            <tbody></tbody></table>
+          <button type="button" class="btn-ghost" style="margin-top:6px;padding:6px 12px;font-size:.8rem;"
+            onclick="addGridRow('${f.key}')">+ Add row</button>`;
+        g.appendChild(wrap);
+        addGridRow(f.key);
+        return;
+      }
       if (f.type === "checkbox") {
         cell.className = "chk";
         cell.innerHTML = `<input type="checkbox" id="${f.key}"><label for="${f.key}" style="margin:0">${f.label}</label>`;
@@ -166,6 +214,20 @@ function render() {
 function collect() {
   const out = {};
   SPECS[current].fields.forEach(f => {
+    if (f.type === "grid") {
+      const rows = [];
+      document.querySelectorAll(`table[data-grid="${f.key}"] tbody tr`).forEach(tr => {
+        const row = {};
+        f.columns.forEach(c => {
+          const el = tr.querySelector(`[data-col="${c.key}"]`);
+          if (!el) return;
+          row[c.key] = c.type === "number" ? (el.value === "" ? 0 : Number(el.value)) : el.value;
+        });
+        rows.push(row);
+      });
+      out[f.key] = rows;
+      return;
+    }
     const el = document.getElementById(f.key);
     if (!el) return;
     if (f.type === "checkbox") out[f.key] = el.checked;
@@ -221,6 +283,12 @@ function togglePrefill() {
 
 function fillFields(inputs) {
   SPECS[current].fields.forEach(f => {
+    if (f.type === "grid" && Array.isArray(inputs[f.key])) {
+      const tbody = document.querySelector(`table[data-grid="${f.key}"] tbody`);
+      if (tbody) tbody.innerHTML = "";
+      inputs[f.key].forEach(row => addGridRow(f.key, row));
+      return;
+    }
     if (f.key in inputs) {
       const el = document.getElementById(f.key);
       if (!el) return;
