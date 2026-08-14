@@ -32,7 +32,9 @@ report: [`../docs/EXCEL_REVERSE_ENGINEERING_GAP_REPORT.md`](../docs/EXCEL_REVERS
 | DTAA relief u/s 90/91 (lower-of-two / lower-rate methods) | ✅ `dtaa.py` |
 | Part B-TI/TTI capstone: special-rate band taxes (20/30/12.5/10%), 87A on TI excl. 112A, regime-aware surcharge (new capped 25%, old 37%), cess, MAX(regular, AMT) | ✅ `ti_tti.py` |
 | **ITR-2 model + JSON builder** (schema-autofill technique, strict 0-error validation) | ✅ `itr2.py` + `itr2_json.py` (5 tests) |
-| ITR-3 (BP/business income block), Schedule 115AD(1)(iii), web UI | ⏳ next |
+| **ITR-3 business engine**: P&L adjustments, DPM depreciation blocks (180-day 50% rule), speculation/specified-business isolation, presumptive reuse | ✅ `business.py` |
+| **ITR-3 model + JSON builder** (PARTA_BS/PL, ITR3ScheduleBP full adjustment chain, audit flags, ProfBusGain) | ✅ 100 % schema-valid (`itr3.py` + `itr3_json.py`) |
+| Schedule 115AD(1)(iii) detail, web UI with live validation | ⏳ next |
 | ITR-2 / ITR-3 (CG, BP, P&L, CYLA/CFL, AMT, DTAA, SPI/SI) | ⏳ planned |
 | Web UI (form entry + live validation) | ⏳ planned |
 

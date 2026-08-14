@@ -22,6 +22,8 @@ def _autofill(node, defs):
     node = dict(node)
     if "$ref" in node:
         return _autofill(defs[node["$ref"].split("/")[-1]], defs)
+    if "enum" in node:
+        return node["enum"][0]
     p = node.get("pattern", "")
     if p and not node.get("properties"):
         if p == "ITR-2":
