@@ -23,7 +23,9 @@ report: [`../docs/EXCEL_REVERSE_ENGINEERING_GAP_REPORT.md`](../docs/EXCEL_REVERS
 | Interest 234C (exact port: 12%/36% tolerances, 15/45/75/100% instalments, 3-3-3-1-1 months) | ✅ `interest.interest_234c` |
 | Entertainment allowance 16(ii) cap (least of actual/5k/1/5 salary) | ✅ `schedules.cap_entertainment_allowance_16ii` |
 | **ITR-4 engine core** (Individual/HUF/Firm slabs, surcharge + marginal relief, cess, 44AD 6%/8% & 3Cr cap, 44ADA 50% & 75L cap, 44AE 1000/MT & 7500/month, 50L eligibility, 87A, 234A/B/F) | ✅ implemented + 10 tests |
-| ITR-4 JSON output against `ITR-4_2026_Main_V1.1.json` + 44AD tax split (Tax_44AD) | ⏳ next |
+| ITR-4 JSON output against official schema | ✅ **100 % schema-valid** (`itr4_json.py`) |
+| ITR-2/3 CYLA set-off engine (17 income buckets, HP 2L cap, loss-order matrix, regime rules) | ✅ `setoff.py` (8 tests) |
+| ITR-2/3 BFLA + CFL carry-forward, CG schedule (112A 12.5%, 20%, DTAA buckets) | ⏳ next |
 | ITR-2 / ITR-3 (CG, BP, P&L, CYLA/CFL, AMT, DTAA, SPI/SI) | ⏳ planned |
 | Web UI (form entry + live validation) | ⏳ planned |
 

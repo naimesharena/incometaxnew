@@ -266,7 +266,9 @@ Development has started on the confirmed extraction. Status of the §10 backlog:
 | Schedule EA 10(13A) HRA (regime-aware), 80D AY 26-27 selection model (25k/50k/75k/1L), 80DD/80U (75k/125k), 80DDB (40k/1L), 80G qualifying-limit engine, 234C exact port, 16(ii) cap, agri-income eligibility rule | ✅ | `software/itr_filing/schedules.py`, `interest.interest_234c` (43 tests) |
 | Remaining for ITR-1: Form 10E relief-89 worksheet, prefill import, 80QQB/80RRB detail sheets, Part B ATI refund-interest (244A) grid | ⏳ next | |
 | ITR-4 engine core: entity-aware slabs (TaxCalc GrpA/B/C/HUF/Firm), surcharge 10/15/12% + marginal relief, cess post-rebate, 87A individuals-only, presumptive 44AD (6%/8%, 3Cr cap), 44ADA (50%, 75L), 44AE (₹1,000/MT & ₹7,500/month), 50L eligibility | ✅ `software/itr_filing/itr4.py` (10 tests) |
-| ITR-4 JSON output + 44AD tax split; ITR-2/ITR-3 engines | ⏳ backlog (§10) | |
+| ITR-4 JSON builder (Form 10IEA flags, ScheduleBP 44AD/ADA/AE detail, due date 31/08/2026) - 100 % schema-valid | ✅ `software/itr_filing/itr4_json.py` |
+| ITR-2/3 CYLA current-year set-off engine: 17 income buckets incl. AY 26-27 CG rates (STCG 15/20/30, LTCG 10/12.5/20/DTAA), HP loss 2L cap + set-off order, BP/OS loss orders, new-regime HP-loss rule | ✅ `software/itr_filing/setoff.py` (8 tests) |
+| ITR-2/3 BFLA + CFL carry-forward, full CG schedule (indexation removed AY26-27, 112A/115AD), AMT, DTAA | ⏳ backlog (§10) | |
 
 Demo: `software/run_demo.py` computes a 14 LPA new-regime return (tax 78,750 + cess 3,150 = 81,900; balance payable 22,776 after TDS 60,000) and emits a **schema-valid** CBDT JSON.
 
