@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+.env
+*.egg-info/
+.eggs/
+dist/
+build/
+*.log
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp/
+.pnp.js
+coverage/
+.nyc_output/
+
+# Frontend build - keep dist but ignore if needed (we include dist for preview)
+# frontend/dist/ - commented out to allow serving
+frontend/node_modules/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data large
+*.bin
+# but keep backend/app/data/*.json needed
+# Ignore temp
+/tmp/
+*.tmp

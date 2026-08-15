@@ -1,0 +1,58 @@
+/usr/local/lib/python3.11/dist-packages/openpyxl/worksheet/_reader.py:329: UserWarning: Unknown extension is not supported and will be removed
+  warn(msg)
+/usr/local/lib/python3.11/dist-packages/openpyxl/worksheet/_reader.py:329: UserWarning: Sparkline Group extension is not supported and will be removed
+  warn(msg)
+/usr/local/lib/python3.11/dist-packages/openpyxl/reader/excel.py:250: UserWarning: Cell 'Income Details':AB200 is part of a merged range but has a comment which will be removed because merged cells cannot contain any data.
+  warnings.warn(comment_warning.format(ws.title, c.coordinate))
+/usr/local/lib/python3.11/dist-packages/openpyxl/reader/excel.py:250: UserWarning: Cell 'Income Details':AB201 is part of a merged range but has a comment which will be removed because merged cells cannot contain any data.
+  warnings.warn(comment_warning.format(ws.title, c.coordinate))
+/usr/local/lib/python3.11/dist-packages/openpyxl/reader/excel.py:250: UserWarning: Cell 'Income Details':AB202 is part of a merged range but has a comment which will be removed because merged cells cannot contain any data.
+  warnings.warn(comment_warning.format(ws.title, c.coordinate))
+
+Processing ITR-1/ITR1_AY_26-27_V1.2.xlsm ...
+  sheets:21 hidden:16 formulas:657 validations:387 vba_modules:73 vba_lines:73526
+
+Processing ITR-2/ITR2_AY_26-27_V1.3.xlsm ...
+  sheets:66 hidden:41 formulas:5730 validations:1122 vba_modules:155 vba_lines:236509
+
+Processing ITR-3/ITR3_AY_26-27_V1.2.xlsm ...
+  sheets:66 hidden:26 formulas:6348 validations:1257 vba_modules:158 vba_lines:240459
+
+Processing ITR-4/ITR4_AY_26-27_V1.1.xlsm ...
+  sheets:24 hidden:17 formulas:1543 validations:522 vba_modules:79 vba_lines:96842
+ITR-1/ITR-1_2026_Main_V1.1.json: defs 64 
+ITR-2/ITR-2_2026_Main_V1.1.json: defs 205 
+ITR-3/ITR-3_2026_Main_V1.1.json: defs 287 
+ITR-4/ITR-4_2026_Main_V1.1.json: defs 73 
+
+Done master report written to /tmp/master_report.json
+
+Repo file count considered: 28
+./ITR-1/CBDT_e-Filing_ITR 1_Validation Rules_AY 2026-27.pdf
+./ITR-1/ITR 1_Schema change document_AY2026-27_V1.1.pdf
+./ITR-1/ITR-1_2026_Main_V1.1.json
+./ITR-1/ITR1_AY_26-27_V1.2.xlsm
+./ITR-2/112A & 115AD/CSV_112A.csv
+./ITR-2/112A & 115AD/CSV_115AD.csv
+./ITR-2/CBDT__e-Filing_ITR 2_Validation Rules_AY 2026-27_V1.0.pdf
+./ITR-2/ITR-2_2026_Main_V1.1.json
+./ITR-2/ITR2_AY_26-27_V1.3.xlsm
+./ITR-2/TCS & TDS & IT/CSV_IT.csv
+./ITR-2/TCS & TDS & IT/CSV_TCS.csv
+./ITR-2/TCS & TDS & IT/CSV_TDS1.csv
+./ITR-2/TCS & TDS & IT/CSV_TDS2.csv
+./ITR-2/TCS & TDS & IT/CSV_TDS3.csv
+./ITR-3/112A & 115AD/CSV_112A and 115AD.csv
+./ITR-3/CBDT_e-filing_ITR-3_Validation Rules_V1.0_AY 26-27.pdf
+./ITR-3/ITR-3_2026_Main_V1.1.json
+./ITR-3/ITR3_AY_26-27_V1.2.xlsm
+./ITR-3/TCS & TDS & IT/CSV_IT.csv
+./ITR-3/TCS & TDS & IT/CSV_TCS.csv
+./ITR-3/TCS & TDS & IT/CSV_TDS1.csv
+./ITR-3/TCS & TDS & IT/CSV_TDS2.csv
+./ITR-3/TCS & TDS & IT/CSV_TDS3.csv
+./ITR-4/CBDT_e-Filing_ITR 4_Validation Rules_AY 2026-27.pdf
+./ITR-4/ITR-4_2026_Main_V1.1.json
+./ITR-4/ITR4_AY_26-27_V1.1.xlsm
+./extract.py
+./full_extract.py
