@@ -6,6 +6,7 @@ import pathlib
 import os
 
 from .routers import master, itr
+from .routers import excel_exact
 
 app = FastAPI(
     title="Income Tax Return Filing Software - AY 2026-27",
@@ -14,14 +15,17 @@ Complete ITR filing software based on Excel .xlsm reverse-engineering.
 
 Features:
 - All 137 sheets mapped (100 hidden + 3 veryHidden)
-- 465 VBA modules (~646k lines) logic translated
+- 465 VBA modules (~646k lines) logic translated – 11117 procedures, 5045 unique Python equivalents in vba_engine.py
+- 14354 named ranges (6039 unique) mapped to Pydantic fields – field_mapping.py + full_field_mapping.json
+- 15278 formulas – exact mirror in formula_engine.py (657 ITR-1, 5730 ITR-2, 6348 ITR-3, 1543 ITR-4) – e.g., BK8=IF(BK7<=59,1,0), AO73=IF(BacValue=1,MIN(Net_salary,75000),...), G12 HRA MIN(3)
 - Master data: 19k pincodes, 140k IFSC, 318 bank codes
 - Tax engine: New regime (0-4L nil, 4-8L 5%, 8-12L 10%, 12-16L 15%, 16-20L 20%, 20-24L 25%, >24L 30%), Old regime, rebate 87A (New 60k up to 12L, Old 12.5k up to 5L), surcharge, cess 4%, interest 234A/B/C, HRA exemption min(3)
 - Validation engine mirroring VBA Validate* + CBDT PDFs
 - JSON builder with HMACSHA256 iterated digest (hash key 7Z3mxclnABiXtYG, iteration 1849 from DataBase sheet)
 - Supports ITR-1, ITR-2, ITR-3, ITR-4
+- Excel Exact Mirror endpoints at /api/excel/* for field mapping, formulas, VBA procedures, linkage report
     """,
-    version="1.0.0"
+    version="2.0.0"
 )
 
 # CORS
@@ -35,6 +39,7 @@ app.add_middleware(
 
 app.include_router(master.router)
 app.include_router(itr.router)
+app.include_router(excel_exact.router)
 
 @app.get("/")
 def root():
